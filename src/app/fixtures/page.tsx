@@ -24,11 +24,11 @@ export default function FixturesPage() {
     // Simulating data for preview purposes if API is not ready
     const simulateData = () => {
       setFixtures([
-        { id: '1', opponent: 'City FC', date: '2026-02-14', time: '19:00', venue: 'Home Arena' },
-        { id: '2', opponent: 'Rovers United', date: '2026-02-21', time: '15:00', venue: 'Away Ground' },
+        { id: '1', opponent: 'Town Ship United', date: '2026-02-01', time: '15:00', venue: 'RA BAZZAR LHR' },
+        { id: '2', opponent: 'Mughalpura', date: '2026-02-02', time: '15:00', venue: 'RA BAZZAR LHR' },
       ]);
       setResults([
-        { id: '3', opponent: 'Athletic Club', date: '2026-01-10', time: 'FT', venue: 'Home Arena', homeScore: 2, awayScore: 1 },
+        { id: '3', opponent: 'Comtel', date: '2026-01-20', time: '20:00', venue: 'MODEL TOWN GROUND', homeScore: 2, awayScore: 1 },
       ]);
       setLoading(false);
     };
@@ -84,8 +84,8 @@ export default function FixturesPage() {
             <button
               onClick={() => setActiveTab('upcoming')}
               className={`px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 ${activeTab === 'upcoming'
-                  ? 'bg-primary text-white shadow-[0_0_20px_rgba(124,58,237,0.5)]'
-                  : 'text-slate-400 hover:text-white'
+                ? 'bg-primary text-white shadow-[0_0_20px_rgba(124,58,237,0.5)]'
+                : 'text-slate-400 hover:text-white'
                 }`}
             >
               UPCOMING
@@ -93,8 +93,8 @@ export default function FixturesPage() {
             <button
               onClick={() => setActiveTab('results')}
               className={`px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 ${activeTab === 'results'
-                  ? 'bg-accent text-white shadow-[0_0_20px_rgba(16,185,129,0.5)]'
-                  : 'text-slate-400 hover:text-white'
+                ? 'bg-accent text-white shadow-[0_0_20px_rgba(16,185,129,0.5)]'
+                : 'text-slate-400 hover:text-white'
                 }`}
             >
               RESULTS

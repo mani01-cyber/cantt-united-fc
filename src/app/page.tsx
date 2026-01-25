@@ -227,9 +227,9 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { img: '/player1.jpg', name: 'Zain Ahmed', pos: 'Striker', num: 10, stats: { pace: 88, shot: 92, pas: 85 } },
-              { img: '/player2.jpg', name: 'Bilal Khan', pos: 'Midfielder', num: 8, stats: { pace: 82, shot: 78, pas: 90 } },
-              { img: '/player3.jpg', name: 'Omar Ali', pos: 'Defender', num: 4, stats: { pace: 75, shot: 60, pas: 82 } }
+              { img: '/player1.jpg', name: 'SHAHID AZIZ', pos: 'Striker', num: 10, stats: { pace: 88, shot: 92, pas: 85 } },
+              { img: '/player6.jpg', name: 'SULEMAN', pos: 'Midfielder', num: 8, stats: { pace: 82, shot: 78, pas: 90 } },
+              { img: '/player3.jpg', name: 'MUSIYAB', pos: 'Defender', num: 4, stats: { pace: 75, shot: 60, pas: 82 } }
             ].map((player, idx) => (
               <div key={idx} className="group relative h-[500px] rounded-3xl overflow-hidden glass-panel border-0 bg-slate-900/50">
                 {/* Image with blending mask */}
@@ -330,7 +330,7 @@ export default function HomePage() {
             Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Dominate?</span>
           </h2>
           <p className="text-xl text-slate-400 mb-10 max-w-xl mx-auto">
-            The pitch is calling. Join United FC today and start your journey to becoming a legend.
+            The pitch is calling. Join cantt United FC today and start your journey to becoming a legend.
           </p>
           <Link
             href="/join"

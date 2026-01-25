@@ -29,7 +29,7 @@ export default function AboutPage() {
             <h2 className="text-4xl font-bold text-white">The Pride of Lahore</h2>
             <div className="space-y-4 text-slate-400 leading-relaxed">
               <p>
-                United FC was founded with a singular vision: to revolutionize football culture in Pakistan. What started as a small training camp has evolved into a premier institution dedicated to sporting excellence.
+                cantt United  was founded with a singular vision: to revolutionize football culture in Pakistan. What started as a small training camp has evolved into a premier institution dedicated to sporting excellence.
               </p>
               <p>
                 We believe that talent exists everywhere, but opportunity does not. Our mission is to bridge that gap, providing world-class facilities and professional coaching to the youth of our nation.
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   <item.icon className={`w-8 h-8 ${item.color}`} />
                 </div>
                 <h3 className="text-xl font-bold text-white">{item.role}</h3>
-                <p className="text-sm text-slate-500 mt-1">United FC Management</p>
+                <p className="text-sm text-slate-500 mt-1">Tahir Iqbal</p>
               </div>
             ))}
           </div>

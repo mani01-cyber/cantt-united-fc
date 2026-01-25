@@ -23,48 +23,48 @@ type Player = {
 const SQUAD_DATA: Player[] = [
   {
     id: '1',
-    name: 'Zain Ahmed',
-    jerseyNumber: 10,
-    position: 'Forward',
+    name: 'shahid aziz',
+    jerseyNumber: 17,
+    position: 'Midfielder',
     photo: '/player1.jpg',
     nationality: 'Pakistan',
-    stats: { age: 24, height: '1.82m', matches: 12, goals: 8 }
+    stats: { age: 24, height: '1.82m', matches: 12, goals: 6 }
   },
   {
     id: '2',
-    name: 'Bilal Khan',
+    name: 'SULEMAN',
     jerseyNumber: 8,
-    position: 'Midfielder',
-    photo: '/player2.jpg',
+    position: 'RIGHTWING BACK',
+    photo: '/player6.jpg',
     nationality: 'Pakistan',
-    stats: { age: 22, height: '1.78m', matches: 14, goals: 4 }
+    stats: { age: 20, height: '1.72m', matches: 14, goals: 0 }
   },
   {
     id: '3',
-    name: 'Omar Ali',
-    jerseyNumber: 4,
-    position: 'Defender',
+    name: 'MUSIYAB',
+    jerseyNumber: 7,
+    position: 'LEFTWING BACK',
     photo: '/player3.jpg',
     nationality: 'UK',
-    stats: { age: 26, height: '1.85m', matches: 10, goals: 1 }
+    stats: { age: 26, height: '1.65m', matches: 10, goals: 1 }
   },
   {
     id: '4',
-    name: 'Sahil',
+    name: 'ARSLAN',
     jerseyNumber: 1,
-    position: 'Keeper',
-    photo: '/player1.jpg',
+    position: 'DEFENDER',
+    photo: '/player5.jpg',
     nationality: 'Pakistan',
-    stats: { age: 19, height: '1.85m', matches: 2, goals: 0 }
+    stats: { age: 20, height: '1.75m', matches: 2, goals: 0 }
   },
   {
     id: '5',
-    name: 'Raza',
-    jerseyNumber: 4,
-    position: 'Defender',
-    photo: '/player3.jpg',
+    name: 'ZESHAN',
+    jerseyNumber: 10,
+    position: 'STRIKER',
+    photo: '/player4.jpg',
     nationality: 'Pakistan',
-    stats: { age: 26, height: '1.85m', matches: 10, goals: 1 }
+    stats: { age: 19, height: '1.67m', matches: 10, goals: 9 }
   },
 ];
 
