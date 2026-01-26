@@ -29,7 +29,7 @@ export default function Navigation() {
               <div className="relative w-16 h-16 transition-transform group-hover:scale-105">
                 <Image
                   src="/logo.svg"
-                  alt="Cantt United FC Logo"
+                  alt="Cantt United Logo"
                   fill
                   className="object-contain drop-shadow-[0_0_15px_rgba(132,204,22,0.5)]"
                 />
@@ -46,7 +46,6 @@ export default function Navigation() {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/squad">Squad</NavLink>
-            <NavLink href="/fixtures">Fixtures</NavLink>
             <NavLink href="/contact">Contact</NavLink>
 
             {session?.user ? (
@@ -91,7 +90,6 @@ export default function Navigation() {
             <MobileNavLink href="/" onClick={() => setIsOpen(false)}>Home</MobileNavLink>
             <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
             <MobileNavLink href="/squad" onClick={() => setIsOpen(false)}>Squad</MobileNavLink>
-            <MobileNavLink href="/fixtures" onClick={() => setIsOpen(false)}>Fixtures</MobileNavLink>
             <MobileNavLink href="/contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
 
             <div className="h-px bg-white/10 my-4" />

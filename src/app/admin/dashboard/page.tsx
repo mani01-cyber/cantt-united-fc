@@ -10,7 +10,7 @@ export default function AdminDashboard() {
     <main className="min-h-screen bg-slate-950 pt-24 pb-16 px-4">
       <div className="container mx-auto">
         <h1 className="text-4xl font-black text-white italic mb-2">MANAGEMENT <span className="text-primary">DASHBOARD</span></h1>
-        <p className="text-slate-400 mb-8">Control Center for Cantt United FC</p>
+        <p className="text-slate-400 mb-8">Control Center for Cantt United</p>
 
         {/* Tabs */}
         <div className="flex gap-4 mb-8 overflow-x-auto pb-2">

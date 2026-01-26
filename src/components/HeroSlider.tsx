@@ -32,7 +32,7 @@ export default function HeroSlider() {
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-5xl md:text-7xl font-bold mb-4 text-yellow-400 animate-fade-in drop-shadow-lg">
-          Cantt United FC
+          Cantt United
         </h1>
         <p className="text-2xl md:text-3xl text-yellow-300 mb-8 animate-slide-in drop-shadow-md">
           Passion, Excellence, Victory
@@ -78,11 +78,10 @@ export default function HeroSlider() {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`block w-4 h-4 rounded-full transition-all duration-300 ${
-              idx === current
+            className={`block w-4 h-4 rounded-full transition-all duration-300 ${idx === current
                 ? "bg-yellow-400 scale-125"
                 : "bg-white/70 hover:bg-white"
-            }`}
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}

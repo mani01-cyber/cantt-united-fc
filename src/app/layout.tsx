@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google"; // Modern, sporty font combina
 import "./globals.css";
 import { Providers } from "./providers";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -17,8 +18,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "United FC - The Future of Football",
-  description: "Official website of United FC. Experience the passion, the power, and the extensive training of Lahore's premier football club.",
+  title: "Cantt United - The Future of Football",
+  description: "Official website of Cantt United. Experience the passion, the power, and the extensive training of Lahore's premier football club.",
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Providers>
           <Navigation />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>

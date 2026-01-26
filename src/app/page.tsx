@@ -109,60 +109,7 @@ export default function HomePage() {
               >
                 <span className="relative z-10 group-hover:text-white transition-colors">JOIN THE SQUAD</span>
               </Link>
-              <Link
-                href="/fixtures"
-                className="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-colors backdrop-blur-md"
-              >
-                VIEW FIXTURES
-              </Link>
             </div>
-          </div>
-
-          {/* Match Card (Floating Glass) */}
-          <div className="relative animate-float delay-100">
-            {!loading && nextMatch && (
-              <div className="glass-panel rounded-3xl p-8 relative overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500 backdrop-blur-xl bg-slate-900/60">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary" />
-
-                <div className="flex justify-between items-center mb-8">
-                  <span className="uppercase tracking-widest text-xs text-slate-400 font-bold">Next Match</span>
-                  <div className="flex items-center space-x-2 text-accent">
-                    <Clock size={16} />
-                    <span className="text-sm font-bold">{nextMatch.time}</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center mb-10">
-                  <div className="text-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center mb-2 mx-auto font-black text-2xl text-black">
-                      UFC
-                    </div>
-                    <span className="font-bold text-xl text-white">United</span>
-                  </div>
-                  <div className="text-4xl font-black text-slate-500">VS</div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-slate-800 rounded-full flex items-center justify-center mb-2 mx-auto font-bold text-2xl border border-slate-700">
-                      VS
-                    </div>
-                    <span className="font-bold text-xl text-white">{nextMatch.opponent.split(' ')[0]}</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-4 gap-4 mb-8">
-                  {Object.entries(countdown).map(([unit, value]) => (
-                    <div key={unit} className="bg-white/5 rounded-lg p-3 text-center border border-white/5">
-                      <div className="text-2xl font-bold text-white font-mono">{value}</div>
-                      <div className="text-[10px] uppercase text-slate-500 font-bold">{unit}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-center space-x-2 text-slate-400 text-sm border-t border-white/10 pt-4">
-                  <MapPin size={16} />
-                  <span>{nextMatch.venue}</span>
-                </div>
-              </div>
-            )}
           </div>
 
         </div>
@@ -282,6 +229,169 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Club History Section */}
+      <section className="relative z-10 py-24 px-4 bg-slate-950 border-t border-white/5">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
+              OUR <span className="text-primary text-glow">JOURNEY</span>
+            </h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              From humble beginnings to becoming one of Lahore's most respected football clubs, our story is one of passion, dedication, and excellence.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* History Image Cards */}
+            {[
+              { img: '/club1.jpg', year: '2007', title: 'The Beginning', desc: 'Founded with a vision to develop football talent in Lahore' },
+              { img: '/club3.jpg', year: '2015', title: 'Rising Stars', desc: 'Our academy program produces top-tier players' },
+              { img: '/club5.jpg', year: '2024', title: 'Champions Era', desc: 'Competing at the highest level with pride' }
+            ].map((item, idx) => (
+              <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-panel border-0">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="text-primary font-black text-2xl mb-2">{item.year}</div>
+                  <h3 className="text-white font-bold text-xl mb-2">{item.title}</h3>
+                  <p className="text-slate-300 text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Timeline */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
+            <div className="space-y-12">
+              {[
+                { year: '2007', event: 'Club Founded', desc: 'Cantt United established in Lahore' },
+                { year: '2010', event: 'First Championship', desc: 'Won our first local tournament' },
+                { year: '2015', event: 'Academy Launch', desc: 'Youth development program initiated' },
+                { year: '2020', event: 'Professional Status', desc: 'Achieved professional club status' },
+                { year: '2024', event: 'Regional Champions', desc: 'Dominating the regional league' }
+              ].map((milestone, idx) => (
+                <div key={idx} className={`flex items-center gap-8 ${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className={`flex-1 ${idx % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                    <div className="inline-block glass-panel px-6 py-4 rounded-xl">
+                      <div className="text-primary font-black text-lg mb-1">{milestone.year}</div>
+                      <h4 className="text-white font-bold mb-1">{milestone.event}</h4>
+                      <p className="text-slate-400 text-sm">{milestone.desc}</p>
+                    </div>
+                  </div>
+                  <div className="w-4 h-4 rounded-full bg-primary border-4 border-slate-950 relative z-10 flex-shrink-0" />
+                  <div className="flex-1" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* By The Numbers Section */}
+      <section className="relative z-10 py-24 px-4 bg-slate-900/50 border-t border-white/5">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
+              BY THE <span className="text-accent text-glow">NUMBERS</span>
+            </h2>
+            <p className="text-slate-400">Our achievements speak for themselves</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { number: '500+', label: 'Matches Played', icon: '⚽' },
+              { number: '1,200+', label: 'Goals Scored', icon: '🎯' },
+              { number: '15', label: 'Trophies Won', icon: '🏆' },
+              { number: '50+', label: 'Squad Members', icon: '👥' }
+            ].map((stat, idx) => (
+              <div key={idx} className="glass-panel p-8 rounded-2xl text-center group hover:border-primary/50 transition-all">
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{stat.icon}</div>
+                <div className="text-4xl md:text-5xl font-black text-white mb-2 group-hover:text-primary transition-colors">
+                  {stat.number}
+                </div>
+                <div className="text-slate-400 font-medium uppercase text-sm tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Club Highlights/Achievements */}
+      <section className="relative z-10 py-24 px-4 bg-slate-950 border-t border-white/5">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
+              CLUB <span className="text-primary text-glow">HIGHLIGHTS</span>
+            </h2>
+            <p className="text-slate-400">Major milestones and achievements</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'Regional Champions 2024', desc: 'Dominated the season with outstanding performance', color: 'primary' },
+              { title: 'Best Youth Academy', desc: 'Recognized for excellence in player development', color: 'accent' },
+              { title: 'Community Impact Award', desc: 'Making a difference beyond the pitch', color: 'pink-500' },
+              { title: 'Unbeaten Home Record', desc: '25 consecutive home victories', color: 'primary' },
+              { title: 'Top Scorer League', desc: 'Our striker leads the regional scoring charts', color: 'accent' },
+              { title: 'Fair Play Trophy', desc: 'Exemplary sportsmanship and discipline', color: 'pink-500' }
+            ].map((achievement, idx) => (
+              <div key={idx} className="glass-panel p-6 rounded-xl group hover:border-primary/50 transition-all cursor-default">
+                <div className={`w-12 h-12 rounded-lg bg-${achievement.color}/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <Trophy className={`w-6 h-6 text-${achievement.color}`} />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-2">{achievement.title}</h3>
+                <p className="text-slate-400 text-sm">{achievement.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trophy Cabinet */}
+      <section className="relative z-10 py-24 px-4 bg-slate-900/50 border-t border-white/5">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
+              TROPHY <span className="text-accent text-glow">CABINET</span>
+            </h2>
+            <p className="text-slate-400">Celebrating our victories</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            {[
+              { name: 'League Cup', count: 3 },
+              { name: 'Regional Title', count: 5 },
+              { name: 'Youth Cup', count: 4 },
+              { name: 'Fair Play', count: 2 },
+              { name: 'Community', count: 1 }
+            ].map((trophy, idx) => (
+              <div key={idx} className="text-center group">
+                <div className="relative mb-4">
+                  <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform border border-primary/30">
+                    <Trophy className="w-12 h-12 text-primary" />
+                  </div>
+                  {trophy.count > 1 && (
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-black font-black text-sm flex items-center justify-center">
+                      {trophy.count}
+                    </div>
+                  )}
+                </div>
+                <h4 className="text-white font-bold text-sm mb-1">{trophy.name}</h4>
+                <p className="text-slate-500 text-xs">
+                  {trophy.count} {trophy.count === 1 ? 'Trophy' : 'Trophies'}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Latest News Section - NEW */}
       <section className="relative z-10 py-24 px-4 bg-slate-900/50 border-t border-white/5">
         <div className="container mx-auto">
@@ -330,7 +440,7 @@ export default function HomePage() {
             Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Dominate?</span>
           </h2>
           <p className="text-xl text-slate-400 mb-10 max-w-xl mx-auto">
-            The pitch is calling. Join cantt United FC today and start your journey to becoming a legend.
+            The pitch is calling. Join Cantt United today and start your journey to becoming a legend.
           </p>
           <Link
             href="/join"

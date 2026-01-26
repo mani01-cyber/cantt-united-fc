@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
                 date: new Date(date),
                 time,
                 venue: venue || 'Home Stadium',
-                homeTeam: homeTeam || 'United FC'
+                homeTeam: homeTeam || 'Cantt United'
             }
         });
 

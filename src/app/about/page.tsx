@@ -117,7 +117,7 @@ export default function AboutPage() {
           <div className="absolute top-0 w-full h-1 left-0 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
           <h2 className="text-4xl font-black text-white mb-6 uppercase italic">Join the <span className="text-primary">Revolution</span></h2>
           <p className="text-lg text-slate-300 mb-8 max-w-xl mx-auto">
-            Whether you are a player, a fan, or a partner, there is a place for you at United FC.
+            Whether you are a player, a fan, or a partner, there is a place for you at Cantt United.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/join" className="px-8 py-3 bg-primary hover:bg-violet-500 text-white font-bold rounded-full transition-colors shadow-lg shadow-primary/20">

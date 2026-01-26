@@ -116,7 +116,7 @@ export default function ContactPage() {
               {submitted ? (
                 <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-6 text-center animate-fade-in-up">
                   <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-                  <p className="text-green-400">Thank you for contacting United FC. We will reply shortly.</p>
+                  <p className="text-green-400">Thank you for contacting Cantt United. We will reply shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
