@@ -31,7 +31,7 @@ export default function Footer() {
                         {/* Social Media Links */}
                         <div className="flex gap-3">
                             <a
-                                href="https://instagram.com"
+                                href="https://instagram.com/canttunitedfc"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
@@ -47,7 +47,7 @@ export default function Footer() {
                                 <Linkedin size={18} className="text-slate-400 group-hover:text-black transition-colors" />
                             </a>
                             <a
-                                href="https://facebook.com"
+                                href="https://facebook.com/CanttUnited"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
@@ -55,7 +55,7 @@ export default function Footer() {
                                 <Facebook size={18} className="text-slate-400 group-hover:text-black transition-colors" />
                             </a>
                             <a
-                                href="mailto:info@canttunited.com"
+                                href="mailto:tahir.iqbal@canttunited.com"
                                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
                             >
                                 <Mail size={18} className="text-slate-400 group-hover:text-black transition-colors" />
@@ -91,15 +91,15 @@ export default function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <MapPin size={16} className="text-primary mt-1 flex-shrink-0" />
-                                <span className="text-slate-400 text-sm">Cantt Area, Lahore, Pakistan</span>
+                                <span className="text-slate-400 text-sm">Garrison Sports Complex, Lahore, Pakistan</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <Phone size={16} className="text-primary mt-1 flex-shrink-0" />
-                                <span className="text-slate-400 text-sm">+92 XXX XXXXXXX</span>
+                                <span className="text-slate-400 text-sm">+92 322 3233434</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <Mail size={16} className="text-primary mt-1 flex-shrink-0" />
-                                <span className="text-slate-400 text-sm">info@canttunited.com</span>
+                                <span className="text-slate-400 text-sm">tahir.iqbal@canttunited.com</span>
                             </li>
                         </ul>
                     </div>

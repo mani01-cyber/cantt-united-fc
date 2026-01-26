@@ -335,10 +335,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: 'Regional Champions 2024', desc: 'Dominated the season with outstanding performance', color: 'primary' },
-              { title: 'Best Youth Academy', desc: 'Recognized for excellence in player development', color: 'accent' },
-              { title: 'Community Impact Award', desc: 'Making a difference beyond the pitch', color: 'pink-500' },
-              { title: 'Unbeaten Home Record', desc: '25 consecutive home victories', color: 'primary' },
-              { title: 'Top Scorer League', desc: 'Our striker leads the regional scoring charts', color: 'accent' },
+              { title: 'Best Youth Academy', desc: 'U16 and U19 recognized for excellence in player development', color: 'accent' },
+              { title: '2nd in Khelta Punjab', desc: 'Making a difference beyond the pitch', color: 'pink-500' },
+              { title: '12 Unbeaten Home Record', desc: '12 consecutive home victories', color: 'primary' },
+              { title: 'Best Inter Club League', desc: 'we are the best in inter club league', color: 'accent' },
               { title: 'Fair Play Trophy', desc: 'Exemplary sportsmanship and discipline', color: 'pink-500' }
             ].map((achievement, idx) => (
               <div key={idx} className="glass-panel p-6 rounded-xl group hover:border-primary/50 transition-all cursor-default">
