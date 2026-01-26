@@ -19,6 +19,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "United FC - The Future of Football",
   description: "Official website of United FC. Experience the passion, the power, and the extensive training of Lahore's premier football club.",
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

@@ -28,10 +28,10 @@ export default function Navigation() {
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-16 h-16 transition-transform group-hover:scale-105">
                 <Image
-                  src="/logo.png"
+                  src="/logo.svg"
                   alt="Cantt United FC Logo"
                   fill
-                  className="object-contain drop-shadow-[0_0_15px_rgba(132,204,22,0.3)]"
+                  className="object-contain drop-shadow-[0_0_15px_rgba(132,204,22,0.5)]"
                 />
               </div>
               <div className="hidden sm:block">
