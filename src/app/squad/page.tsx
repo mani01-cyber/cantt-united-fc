@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, User } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
 type Player = {
@@ -10,211 +10,271 @@ type Player = {
   jerseyNumber: number;
   position: string;
   photo: string;
-  nationality: string;
-  stats: {
-    age: number;
-    height: string;
-    matches: number;
-    goals: number;
-  };
+  bio: string; // Short 1-2 line player description
 };
 
-// Using the uploaded player images
-const SQUAD_DATA: Player[] = [
+// Senior Squad Data
+const SENIOR_SQUAD: Player[] = [
   {
     id: '1',
-    name: 'shahid aziz',
+    name: 'Shahid Aziz',
     jerseyNumber: 17,
     position: 'Midfielder',
     photo: '/player1.jpg',
-    nationality: 'Pakistan',
-    stats: { age: 24, height: '1.82m', matches: 12, goals: 6 }
+    bio: 'Dynamic midfielder with exceptional vision and passing ability. Known for controlling the tempo of the game.'
   },
   {
     id: '2',
-    name: 'SULEMAN',
+    name: 'Suleman',
     jerseyNumber: 8,
-    position: 'RIGHTWING BACK',
+    position: 'Right Wing Back',
     photo: '/player6.jpg',
-    nationality: 'Pakistan',
-    stats: { age: 20, height: '1.72m', matches: 14, goals: 0 }
+    bio: 'Versatile wing back with pace and defensive awareness. Contributes effectively in both attack and defense.'
   },
   {
     id: '3',
-    name: 'MUSIYAB',
+    name: 'Musiyab',
     jerseyNumber: 7,
-    position: 'LEFTWING BACK',
+    position: 'Left Wing Back',
     photo: '/player3.jpg',
-    nationality: 'UK',
-    stats: { age: 26, height: '1.65m', matches: 10, goals: 1 }
+    bio: 'Skillful left wing back from London with excellent crossing ability and tactical intelligence on the pitch.'
   },
   {
     id: '4',
-    name: 'ARSLAN',
+    name: 'Arslan',
     jerseyNumber: 1,
-    position: 'DEFENDER',
+    position: 'Defender',
     photo: '/player5.jpg',
-    nationality: 'Pakistan',
-    stats: { age: 20, height: '1.75m', matches: 2, goals: 0 }
+    bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
   },
   {
     id: '5',
-    name: 'ZESHAN',
+    name: 'Zeshan',
     jerseyNumber: 10,
-    position: 'STRIKER',
+    position: 'Striker',
     photo: '/player4.jpg',
-    nationality: 'Pakistan',
-    stats: { age: 19, height: '1.67m', matches: 10, goals: 9 }
+    bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
   },
 ];
 
-export default function SquadPage() {
-  const [activeIndex, setActiveIndex] = useState(1); // Start with middle player active
+// Youth Academy Data
+const YOUTH_SQUAD: Player[] = [
+  {
+    id: 'y1',
+    name: 'Ahmed Khan',
+    jerseyNumber: 23,
+    position: 'Forward',
+    photo: '/player1.jpg',
+    bio: 'Promising young forward with great potential. Quick on the ball and eager to learn from senior players.'
+  },
+  {
+    id: 'y2',
+    name: 'Hassan Ali',
+    jerseyNumber: 19,
+    position: 'Midfielder',
+    photo: '/player3.jpg',
+    bio: 'Talented academy midfielder with excellent ball control. Shows maturity beyond his years in decision-making.'
+  },
+  {
+    id: 'y3',
+    name: 'Bilal Ahmed',
+    jerseyNumber: 15,
+    position: 'Goalkeeper',
+    photo: '/player5.jpg',
+    bio: 'Agile young goalkeeper with sharp reflexes. Demonstrates strong command of the penalty area and distribution.'
+  },
+];
+
+// Squad Slider Component
+function SquadSlider({ title, players, accentColor }: { title: string; players: Player[]; accentColor: string }) {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const nextPlayer = () => {
-    setActiveIndex((prev) => (prev + 1) % SQUAD_DATA.length);
+    setActiveIndex((prev) => (prev + 1) % players.length);
   };
 
   const prevPlayer = () => {
-    setActiveIndex((prev) => (prev - 1 + SQUAD_DATA.length) % SQUAD_DATA.length);
+    setActiveIndex((prev) => (prev - 1 + players.length) % players.length);
   };
 
-  const activePlayer = SQUAD_DATA[activeIndex];
-
-  // Calculate indices for visible neighbors
-  const prevIndex = (activeIndex - 1 + SQUAD_DATA.length) % SQUAD_DATA.length;
-  const nextIndex = (activeIndex + 1) % SQUAD_DATA.length;
+  const activePlayer = players[activeIndex];
+  const prevIndex = (activeIndex - 1 + players.length) % players.length;
+  const nextIndex = (activeIndex + 1) % players.length;
 
   return (
-    <main className="min-h-screen bg-slate-950 relative overflow-hidden flex flex-col pt-24">
-      {/* Dynamic Background Shapes */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Angled Divider */}
-        <div className="absolute top-0 right-[-20%] w-[70%] h-full bg-slate-900 transform -skew-x-12 border-l border-white/5" />
-        <div className="absolute top-0 right-[20%] w-[30%] h-full bg-gradient-to-b from-primary/10 to-transparent transform -skew-x-12 opacity-50" />
+    <div className="relative">
+      {/* Section Title */}
+      <div className="mb-8">
+        <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter uppercase">
+          {title}
+        </h2>
+        <div className={`h-1 w-32 ${accentColor} mt-2 rounded-full`} />
       </div>
 
-      <div className="container mx-auto px-4 flex-grow flex flex-col z-10">
+      {/* Slider Container */}
+      <div className="relative flex items-center justify-center min-h-[450px] md:min-h-[500px]">
 
-        {/* Header */}
-        <div className="flex justify-between items-end mb-12 pb-4 border-b border-white/10">
-          <div>
-            <div className="text-primary font-bold tracking-widest text-sm mb-2">TALENT MANAGEMENT</div>
-            <h1 className="text-5xl font-black text-white italic tracking-tighter">THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">SQUAD</span></h1>
-          </div>
-          <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-primary to-primary-dark text-black font-bold px-8 py-3 rounded-tr-xl rounded-bl-xl transform transition-transform hover:scale-105 shadow-lg shadow-primary/25">
-              GET IN TOUCH
-            </button>
-          </div>
-        </div>
-
-        {/* Carousel Area */}
-        <div className="flex-grow relative flex items-center justify-center min-h-[500px]">
-
-          {/* Prev Player (Left) */}
+        {/* Previous Player (Left) - Hidden on mobile */}
+        {players.length > 1 && (
           <div
-            className="hidden md:block absolute left-10 lg:left-32 opacity-40 scale-75 blur-[2px] transition-all duration-500 cursor-pointer hover:opacity-60"
+            className="hidden md:block absolute left-0 lg:left-20 opacity-30 scale-75 blur-[1px] transition-all duration-500 cursor-pointer hover:opacity-50 z-10"
             onClick={prevPlayer}
           >
-            <div className="relative h-[400px] w-[250px] grayscale">
+            <div className="relative h-[350px] w-[220px] grayscale">
               <Image
-                src={SQUAD_DATA[prevIndex].photo}
+                src={players[prevIndex].photo}
                 alt="Previous"
                 fill
-                className="object-cover object-top mask-image-gradient"
+                className="object-cover object-top rounded-lg"
               />
             </div>
           </div>
+        )}
 
-          {/* Active Player (Center) */}
-          <div className="relative z-20 transform transition-all duration-500 scale-100 md:scale-110">
-            {/* Glow Behind */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[80px]" />
+        {/* Active Player (Center) */}
+        <div className="relative z-20 transform transition-all duration-500">
+          {/* Glow Effect */}
+          <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] h-[250px] ${accentColor.replace('bg-', 'bg-')}/20 rounded-full blur-[100px]`} />
 
-            <div className="relative h-[400px] w-[300px] md:h-[550px] md:w-[400px]">
-              <Image
-                src={activePlayer.photo}
-                alt={activePlayer.name}
-                fill
-                className="object-cover object-top drop-shadow-[0_0_50px_rgba(0,0,0,0.5)]"
-                priority
-              />
+          {/* Player Image */}
+          <div className="relative h-[400px] w-[280px] md:h-[500px] md:w-[350px]">
+            <Image
+              src={activePlayer.photo}
+              alt={activePlayer.name}
+              fill
+              className="object-cover object-top rounded-lg shadow-2xl"
+              priority
+            />
+
+            {/* Jersey Number Overlay */}
+            <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+              <span className="text-5xl font-black text-white/90">#{activePlayer.jerseyNumber}</span>
             </div>
           </div>
+        </div>
 
-          {/* Next Player (Right) */}
+        {/* Next Player (Right) - Hidden on mobile */}
+        {players.length > 1 && (
           <div
-            className="hidden md:block absolute right-10 lg:right-32 opacity-40 scale-75 blur-[2px] transition-all duration-500 cursor-pointer hover:opacity-60"
+            className="hidden md:block absolute right-0 lg:right-20 opacity-30 scale-75 blur-[1px] transition-all duration-500 cursor-pointer hover:opacity-50 z-10"
             onClick={nextPlayer}
           >
-            <div className="relative h-[400px] w-[250px] grayscale">
+            <div className="relative h-[350px] w-[220px] grayscale">
               <Image
-                src={SQUAD_DATA[nextIndex].photo}
+                src={players[nextIndex].photo}
                 alt="Next"
                 fill
-                className="object-cover object-top mask-image-gradient"
+                className="object-cover object-top rounded-lg"
               />
             </div>
           </div>
+        )}
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevPlayer}
-            className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-primary transition-all group z-30 bg-black/20 backdrop-blur-sm"
-          >
-            <ChevronLeft className="group-hover:text-primary transition-colors" />
-          </button>
-          <button
-            onClick={nextPlayer}
-            className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-primary transition-all group z-30 bg-black/20 backdrop-blur-sm"
-          >
-            <ChevronRight className="group-hover:text-primary transition-colors" />
-          </button>
-        </div>
+        {/* Navigation Buttons */}
+        {players.length > 1 && (
+          <>
+            <button
+              onClick={prevPlayer}
+              className={`absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/30 flex items-center justify-center text-white hover:${accentColor} hover:border-transparent transition-all group z-30 bg-black/40 backdrop-blur-sm`}
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={nextPlayer}
+              className={`absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/30 flex items-center justify-center text-white hover:${accentColor} hover:border-transparent transition-all group z-30 bg-black/40 backdrop-blur-sm`}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </>
+        )}
+      </div>
 
-        {/* Player Stats Footer */}
-        <div className="mt-8 grid md:grid-cols-4 gap-8 border-t border-white/10 pt-8 pb-12 items-end">
-          <div className="col-span-1">
-            <div className="flex items-center gap-2 text-primary text-sm font-bold tracking-widest uppercase mb-1">
-              Football Player
+      {/* Player Info Card */}
+      <div className="mt-8 bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8">
+        <div className="grid md:grid-cols-3 gap-6 items-center">
+
+          {/* Name & Position */}
+          <div className="md:col-span-2">
+            <div className={`text-sm font-bold tracking-widest uppercase mb-2 ${accentColor.replace('bg-', 'text-')}`}>
+              {activePlayer.position}
             </div>
-            <h2 className="text-4xl font-black text-white uppercase italic leading-none">{activePlayer.name}</h2>
-          </div>
+            <h3 className="text-3xl md:text-4xl font-black text-white uppercase italic leading-tight">
+              {activePlayer.name}
+            </h3>
 
-          <div className="text-center md:text-left">
-            <div className="text-4xl font-black text-white">{activePlayer.stats.age}</div>
-            <div className="text-sm text-slate-500 font-bold uppercase tracking-wide">Years Old</div>
-          </div>
 
-          <div className="text-center md:text-left">
-            <div className="text-4xl font-black text-white">{activePlayer.stats.height}</div>
-            <div className="text-sm text-slate-500 font-bold uppercase tracking-wide">Height</div>
-          </div>
-
-          <div>
-            <div className="flex justify-between items-end mb-2">
-              <span className="text-xl font-bold text-primary">{activePlayer.position}</span>
-              <span className="text-4xl font-black text-white/10">#{activePlayer.jerseyNumber}</span>
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed border-l-2 border-primary/50 pl-4 py-1">
-              A key player for {activePlayer.nationality}, known for their tactical awareness and technical skill on the ball.
+            {/* Player Bio */}
+            <p className="mt-3 text-slate-400 text-sm leading-relaxed">
+              {activePlayer.bio}
             </p>
           </div>
-        </div>
 
-        {/* Progress Helper */}
-        <div className="flex justify-center gap-2 pb-8">
-          <span className="text-sm font-bold text-white">{(activeIndex + 1).toString().padStart(2, '0')}</span>
-          <div className="w-24 h-5 flex items-center">
-            <div className="w-full h-[2px] bg-slate-800 relative">
-              <div
-                className="absolute left-0 top-0 h-full bg-primary transition-all duration-300"
-                style={{ width: `${((activeIndex + 1) / SQUAD_DATA.length) * 100}%` }}
-              />
+          {/* Jersey Number Display */}
+          <div className="flex justify-center md:justify-end">
+            <div className={`${accentColor} rounded-2xl px-8 py-4 shadow-lg`}>
+              <div className="text-center">
+                <div className="text-sm font-bold text-black/70 uppercase tracking-wider mb-1">Number</div>
+                <div className="text-6xl font-black text-black">#{activePlayer.jerseyNumber}</div>
+              </div>
             </div>
           </div>
-          <span className="text-sm font-bold text-slate-600">{SQUAD_DATA.length.toString().padStart(2, '0')}</span>
+        </div>
+
+        {/* Progress Indicator */}
+        {players.length > 1 && (
+          <div className="flex justify-center items-center gap-3 mt-6 pt-6 border-t border-white/10">
+            <span className="text-sm font-bold text-white">{(activeIndex + 1).toString().padStart(2, '0')}</span>
+            <div className="w-32 h-1 bg-slate-700 rounded-full overflow-hidden">
+              <div
+                className={`h-full ${accentColor} transition-all duration-300 rounded-full`}
+                style={{ width: `${((activeIndex + 1) / players.length) * 100}%` }}
+              />
+            </div>
+            <span className="text-sm font-bold text-slate-500">{players.length.toString().padStart(2, '0')}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function SquadPage() {
+  return (
+    <main className="min-h-screen bg-slate-950 relative overflow-hidden pt-24 pb-16">
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-0 right-[-20%] w-[70%] h-full bg-slate-900 transform -skew-x-12 border-l border-white/5" />
+        <div className="absolute top-0 left-[-20%] w-[50%] h-full bg-gradient-to-b from-primary/5 to-transparent transform skew-x-12 opacity-50" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+
+        {/* Page Header */}
+        <div className="flex justify-between items-end mb-16 pb-6 border-b border-white/10">
+          <div>
+            <div className="text-primary font-bold tracking-widest text-sm mb-2">CANTT UNITED FC</div>
+            <h1 className="text-5xl md:text-6xl font-black text-white italic tracking-tighter">
+              OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">SQUAD</span>
+            </h1>
+          </div>
+        </div>
+
+        {/* Senior Squad Section */}
+        <div className="mb-20">
+          <SquadSlider
+            title="Senior Squad"
+            players={SENIOR_SQUAD}
+            accentColor="bg-primary"
+          />
+        </div>
+
+        {/* Youth Academy Section */}
+        <div className="mb-12">
+          <SquadSlider
+            title="Youth Academy"
+            players={YOUTH_SQUAD}
+            accentColor="bg-emerald-500"
+          />
         </div>
 
       </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
