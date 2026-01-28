@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Trophy, Users, Zap, Clock, MapPin, Calendar } from 'lucide-react';
