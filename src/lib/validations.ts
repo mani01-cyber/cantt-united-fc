@@ -57,3 +57,10 @@ export const trialSchema = z.object({
   phone: z.string().regex(/^\+?[0-9\-\s]{10,}/, "Invalid phone number"),
   email: z.string().email("Invalid email address"),
 });
+// Contact Schemas
+export const contactSchema = z.object({
+  name: z.string().min(2, "Name required"),
+  email: z.string().email("Invalid email address"),
+  subject: z.string().min(2, "Subject required"),
+  message: z.string().min(5, "Message must be at least 5 characters"),
+});

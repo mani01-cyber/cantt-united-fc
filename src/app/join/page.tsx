@@ -27,12 +27,6 @@ export default function JoinUsPage() {
     setError('');
     setLoading(true);
 
-    // Simulate success for demo purposes
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setSuccess(true);
-    setLoading(false);
-
-    /* Original API Logic
     try {
       const response = await fetch('/api/trials', {
         method: 'POST',
@@ -48,14 +42,13 @@ export default function JoinUsPage() {
         setFormData({ fullName: '', age: '', position: 'MIDFIELDER', phone: '', email: '' });
       } else {
         const data = await response.json();
-        setError(data.message || 'Registration failed');
+        setError(data.error || data.message || 'Registration failed');
       }
     } catch (err: any) {
       setError(err.message || 'An error occurred');
     } finally {
       setLoading(false);
     }
-    */
   };
 
   return (
