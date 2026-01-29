@@ -17,43 +17,131 @@ type Player = {
 const SENIOR_SQUAD: Player[] = [
   {
     id: '1',
-    name: 'Shahid Aziz',
+    name: 'Abdullah',
     jerseyNumber: 17,
     position: 'Midfielder',
-    photo: '/player1.jpg',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698758/IMG-20241222-WA0049_lhntlh.jpg',
     bio: 'Dynamic midfielder with exceptional vision and passing ability. Known for controlling the tempo of the game.'
   },
   {
     id: '2',
-    name: 'Suleman',
-    jerseyNumber: 8,
-    position: 'Right Wing Back',
-    photo: '/player6.jpg',
-    bio: 'Versatile wing back with pace and defensive awareness. Contributes effectively in both attack and defense.'
+    name: 'Qaisar',
+    jerseyNumber: 10,
+    position: 'Striker',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698758/IMG-20241222-WA0015_a8wbck.jpg',
+    bio: 'Versatile Striker with pace and defensive awareness. Contributes effectively in both attack and defense.'
   },
   {
     id: '3',
-    name: 'Musiyab',
+    name: 'Sadam',
     jerseyNumber: 7,
     position: 'Left Wing Back',
-    photo: '/player3.jpg',
-    bio: 'Skillful left wing back from London with excellent crossing ability and tactical intelligence on the pitch.'
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698020/IMG-20260129-WA0050_nbcp7d.jpg',
+    bio: 'Skillful left wing back  with excellent crossing ability and tactical intelligence on the pitch.'
   },
   {
     id: '4',
-    name: 'Arslan',
-    jerseyNumber: 1,
+    name: 'Zohaib',
+    jerseyNumber: 5,
     position: 'Defender',
-    photo: '/player5.jpg',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698849/IMG-20250317-WA0071_ctyrcq.jpg',
     bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
   },
   {
     id: '5',
-    name: 'Zeshan',
+    name: 'Mudassir',
+    jerseyNumber: 7,
+    position: 'Striker',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg',
+    bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
+  },
+  {
+    id: '6',
+    name: 'Tayyab',
+    jerseyNumber: 7,
+    position: 'Defender',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698097/IMG-20251123-WA0170_md2oy1.jpg',
+    bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
+  },
+  {
+    id: '7',
+    name: 'Suleman',
+    jerseyNumber: 8,
+    position: 'Right Wing Back',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679689/player6_myfwq7.jpg',
+    bio: 'Skillful Right wing back  with excellent crossing ability and tactical intelligence on the pitch.'
+  },
+  {
+    id: '8',
+    name: 'Umer',
+    jerseyNumber: 1,
+    position: 'Goalkeeper',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg',
+    bio: 'Best Goalkeeper in lahore'
+  },
+  {
+    id: '9',
+    name: 'Shahid',
+    jerseyNumber: 17,
+    position: 'Midfielder',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679681/player1_ebfejw.jpg',
+    bio: 'Dynamic midfielder with exceptional vision and passing ability. Known for controlling the tempo of the game.'
+  },
+  {
+    id: '10',
+    name: 'Hanzla',
+    jerseyNumber: 4,
+    position: 'Defender',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg',
+    bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
+  },
+  {
+    id: '11',
+    name: 'Arslan',
+    jerseyNumber: 14,
+    position: 'Defender',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player5_om8l1g.jpg',
+    bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
+  },
+  {
+    id: '12',
+    name: 'Musayab',
+    jerseyNumber: 7,
+    position: 'Left Wing Back',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player3_sjezop.jpg',
+    bio: 'Skillful left wing back  with excellent crossing ability and tactical intelligence on the pitch.'
+  },
+  {
+    id: '13',
+    name: ' zeeshan',
+    jerseyNumber: 7,
+    position: 'Striker',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player4_vn1ktn.jpg',
+    bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
+  },
+  {
+    id: '14',
+    name: 'Musa',
+    jerseyNumber: 7,
+    position: 'Striker',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699043/IMG-20251018-WA0091_xnrwet.jpg',
+    bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
+  },
+  {
+    id: '15',
+    name: 'Raheel',
     jerseyNumber: 10,
     position: 'Striker',
-    photo: '/player4.jpg',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698025/IMG-20251206-WA0000_k4oges.jpg',
     bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
+  },
+  {
+    id: '16',
+    name: 'Mudassir jr',
+    jerseyNumber: 6,
+    position: 'Midfielder',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698020/IMG-20260129-WA0090_p4usev.jpg',
+    bio: 'Dynamic midfielder with exceptional vision and passing ability. Known for controlling the tempo of the game.'
   },
 ];
 
@@ -61,27 +149,59 @@ const SENIOR_SQUAD: Player[] = [
 const YOUTH_SQUAD: Player[] = [
   {
     id: 'y1',
-    name: 'Ahmed Khan',
+    name: 'Rizwan',
     jerseyNumber: 23,
     position: 'Forward',
-    photo: '/player1.jpg',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699055/IMG-20250812-WA0006_jsgxsx.jpg',
     bio: 'Promising young forward with great potential. Quick on the ball and eager to learn from senior players.'
   },
   {
     id: 'y2',
-    name: 'Hassan Ali',
-    jerseyNumber: 19,
-    position: 'Midfielder',
-    photo: '/player3.jpg',
-    bio: 'Talented academy midfielder with excellent ball control. Shows maturity beyond his years in decision-making.'
+    name: 'Ikram',
+    jerseyNumber: 1,
+    position: ' Goalkeeper',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698851/IMG-20250413-WA0028_kxitlp.jpg',
+    bio: 'Talented academy Goalkeeper with excellent ball control. Shows maturity beyond his years in decision-making.'
   },
   {
     id: 'y3',
-    name: 'Bilal Ahmed',
+    name: 'Haseeb',
     jerseyNumber: 15,
-    position: 'Goalkeeper',
-    photo: '/player5.jpg',
-    bio: 'Agile young goalkeeper with sharp reflexes. Demonstrates strong command of the penalty area and distribution.'
+    position: 'Midfielder',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698039/IMG-20260129-WA0025_nrzetq.jpg',
+    bio: 'Agile young midfielder with sharp reflexes. Demonstrates strong command of the penalty area and distribution.'
+  },
+  {
+    id: 'y4',
+    name: 'Ayyan',
+    jerseyNumber: 8,
+    position: 'Midfielder',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698072/IMG-20260129-WA0013_ycrkqo.jpg',
+    bio: 'Agile young midfielder with sharp reflexes. Demonstrates strong command of the penalty area and distribution.'
+  },
+  {
+    id: 'y5',
+    name: 'Zain',
+    jerseyNumber: 10,
+    position: 'Forward',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698066/IMG-20260129-WA0017_p8mhqt.jpg',
+    bio: 'Promising young forward with great potential. Quick on the ball and eager to learn from senior players.'
+  },
+  {
+    id: 'y6',
+    name: 'Haider',
+    jerseyNumber: 1,
+    position: ' Goalkeeper',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698062/IMG-20260129-WA0018_nwzxmr.jpg',
+    bio: 'Talented academy Goalkeeper with excellent ball control. Shows maturity beyond his years in decision-making.'
+  },
+  {
+    id: 'y7',
+    name: 'Khizer',
+    jerseyNumber: 10,
+    position: 'Forward',
+    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698045/IMG-20260129-WA0023_ufosdm.jpg',
+    bio: 'Promising young forward with great potential. Quick on the ball and eager to learn from senior players.'
   },
 ];
 
