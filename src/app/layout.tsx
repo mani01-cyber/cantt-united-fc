@@ -21,6 +21,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Cantt United - The Future of Football",
   description: "Official website of Cantt United. Experience the passion, the power, and the extensive training of Lahore's premier football club.",
+  keywords: 'Football, Cantt United, Soccer Club, Lahore Football',
+  verification: {
+    google: 'googleaf2f96d2da693c18',
+  },
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
