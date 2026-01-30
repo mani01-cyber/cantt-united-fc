@@ -52,7 +52,7 @@ export default function JoinUsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 pt-24 pb-16 relative overflow-hidden">
+    <main className="min-h-screen bg-slate-950 pt-24 pb-20 relative">
       {/* Background Ambience */}
       <div className="fixed inset-0 z-0">
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-accent/20 rounded-full blur-[120px]" />
@@ -63,7 +63,7 @@ export default function JoinUsPage() {
 
         {/* Left Side Content */}
         <div className="text-white space-y-8 animate-fade-in-up">
-          <h1 className="text-6xl font-black leading-tight">
+          <h1 className="text-4xl md:text-6xl font-black leading-tight">
             PROVE <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-green-300">YOURSELF</span>
           </h1>
@@ -124,7 +124,7 @@ export default function JoinUsPage() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid md:grid-cols-2 gap-5">
                   <div className="space-y-1">
                     <label className="text-sm font-bold text-slate-400 ml-1">Age</label>
                     <input

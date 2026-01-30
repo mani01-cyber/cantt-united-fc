@@ -40,7 +40,7 @@ export default function GalleryPage() {
                     <Link href="/" className="inline-flex items-center gap-2 text-primary font-bold mb-6 hover:text-white transition-colors">
                         <ChevronLeft size={20} /> BACK TO HOME
                     </Link>
-                    <h1 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase">
+                    <h1 className="text-4xl md:text-7xl font-black italic tracking-tighter uppercase">
                         CLUB <span className="text-primary text-glow">GALLERY</span>
                     </h1>
                     <p className="text-slate-400 mt-4 max-w-xl mx-auto">Explore the moments that define Cantt United.</p>

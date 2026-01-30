@@ -65,7 +65,7 @@ export default function HomePage() {
   }, [nextMatch]);
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-slate-950">
+    <main className="min-h-screen relative bg-slate-950">
 
       {/* Background Slideshow */}
       <div className="fixed inset-0 z-0">
@@ -101,7 +101,7 @@ export default function HomePage() {
             <div className="inline-block px-4 py-1 rounded-full border border-accent/30 bg-accent/10 text-accent font-medium text-sm tracking-wide mb-2 backdrop-blur-sm">
               EST. 2007 • LAHORE
             </div>
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] drop-shadow-lg">
+            <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] drop-shadow-lg">
               WE ARE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">UNITED</span>
             </h1>
@@ -371,10 +371,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             {[
-              { name: 'League Cup', count: 3 },
-              { name: 'Regional Title', count: 5 },
-              { name: 'Youth Cup', count: 4 },
-              { name: 'Fair Play', count: 2 },
+              { name: 'RA bazar All Punjab', count: 1 },
+              { name: 'RA bazar 9Aside', count: 2 },
+              { name: 'Rafiq Memorial', count: 1 },
+              { name: 'Khelta Punjab', count: 1 },
               { name: 'Community', count: 1 }
             ].map((trophy, idx) => (
               <div key={idx} className="text-center group">

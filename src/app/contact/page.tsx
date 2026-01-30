@@ -50,7 +50,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-950 pt-24 pb-16 relative overflow-hidden">
+    <main className="min-h-screen bg-slate-950 pt-24 pb-16 relative">
       {/* Background Ambience */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] bg-primary/20 rounded-full blur-[120px] opacity-40" />
@@ -61,7 +61,7 @@ export default function ContactPage() {
 
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
-          <h1 className="text-6xl font-black text-white italic tracking-tighter mb-4">GET IN <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">TOUCH</span></h1>
+          <h1 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-4">GET IN <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">TOUCH</span></h1>
           <p className="text-slate-400 text-xl max-w-xl mx-auto">
             Have questions about trials, matches, or partnerships? We're here to help.
           </p>

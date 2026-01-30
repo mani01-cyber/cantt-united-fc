@@ -360,7 +360,7 @@ function SquadSlider({ title, players, accentColor }: { title: string; players: 
 
 export default function SquadPage() {
   return (
-    <main className="min-h-screen bg-slate-950 relative overflow-hidden pt-24 pb-16">
+    <main className="min-h-screen bg-slate-950 relative pt-24 pb-16">
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 right-[-20%] w-[70%] h-full bg-slate-900 transform -skew-x-12 border-l border-white/5" />
@@ -373,7 +373,7 @@ export default function SquadPage() {
         <div className="flex justify-between items-end mb-16 pb-6 border-b border-white/10">
           <div>
             <div className="text-primary font-bold tracking-widest text-sm mb-2">CANTT UNITED FC</div>
-            <h1 className="text-5xl md:text-6xl font-black text-white italic tracking-tighter">
+            <h1 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter">
               OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">SQUAD</span>
             </h1>
           </div>

@@ -5,7 +5,7 @@ import { Target, Heart, Users, Award, Shield, Timer } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-slate-950 pt-24 pb-16 relative overflow-hidden">
+    <main className="min-h-screen bg-slate-950 pt-24 pb-16 relative">
       {/* Background Ambience */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px]" />
@@ -16,7 +16,7 @@ export default function AboutPage() {
 
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in-up">
-          <h1 className="text-6xl font-black text-white italic tracking-tighter mb-4">OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">LEGACY</span></h1>
+          <h1 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-4">OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">LEGACY</span></h1>
           <p className="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
             More than just a football club. We are a movement, a community, and a training ground for the future stars of the game.
           </p>
