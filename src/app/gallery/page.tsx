@@ -7,7 +7,13 @@ import { ChevronLeft, Play, Camera, X } from 'lucide-react';
 
 // Helper to get thumbnail from Cloudinary URL (supports both image and video embed URLs)
 const getMediaPreview = (item: { type: string; url: string }) => {
-    if (item.type === 'photo') return item.url;
+    if (item.type === 'photo') {
+        // Optimize standard photo URLs
+        if (item.url.includes('cloudinary.com')) {
+            return item.url.replace('/upload/', '/upload/f_auto,q_auto,w_800/');
+        }
+        return item.url;
+    }
 
     // For video embed URLs like: https://player.cloudinary.com/embed/?cloud_name=deak2c1my&public_id=VID-20260127-WA0010_moj2qy
     if (item.url.includes('player.cloudinary.com')) {
@@ -15,13 +21,13 @@ const getMediaPreview = (item: { type: string; url: string }) => {
         const cloudName = urlParams.get('cloud_name');
         const publicId = urlParams.get('public_id');
         if (cloudName && publicId) {
-            return `https://res.cloudinary.com/${cloudName}/video/upload/v1/${publicId}.jpg`;
+            return `https://res.cloudinary.com/${cloudName}/video/upload/f_auto,q_auto,w_800/v1/${publicId}.jpg`;
         }
     }
 
     // Fallback for standard video upload URLs
     if (item.url.includes('video/upload')) {
-        return item.url.replace('/video/upload/', '/video/upload/').replace(/\.[^/.]+$/, ".jpg");
+        return item.url.replace('/video/upload/', '/video/upload/f_auto,q_auto,w_800/').replace(/\.[^/.]+$/, ".jpg");
     }
 
     return item.url;
@@ -148,6 +154,7 @@ export default function GalleryPage() {
                                 src={getMediaPreview(item)}
                                 alt={item.title}
                                 className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                                loading="lazy"
                             />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 {item.type === 'video' ? (

@@ -13,6 +13,13 @@ type Player = {
   bio: string; // Short 1-2 line player description
 };
 
+const optimizeCloudinary = (url: string, width: number = 800) => {
+  if (url.includes('cloudinary.com')) {
+    return url.replace('/upload/', `/upload/f_auto,q_auto,w_${width}/`);
+  }
+  return url;
+};
+
 // Senior Squad Data
 const SENIOR_SQUAD: Player[] = [
   {
@@ -20,7 +27,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Abdullah',
     jerseyNumber: 17,
     position: 'Midfielder',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698758/IMG-20241222-WA0049_lhntlh.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698758/IMG-20241222-WA0049_lhntlh.jpg'),
     bio: 'Dynamic midfielder with exceptional vision and passing ability. Known for controlling the tempo of the game.'
   },
   {
@@ -28,7 +35,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Qaisar',
     jerseyNumber: 10,
     position: 'Striker',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698758/IMG-20241222-WA0015_a8wbck.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698758/IMG-20241222-WA0015_a8wbck.jpg'),
     bio: 'Versatile Striker with pace and defensive awareness. Contributes effectively in both attack and defense.'
   },
   {
@@ -36,7 +43,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Sadam',
     jerseyNumber: 7,
     position: 'Left Wing Back',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698020/IMG-20260129-WA0050_nbcp7d.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698020/IMG-20260129-WA0050_nbcp7d.jpg'),
     bio: 'Skillful left wing back  with excellent crossing ability and tactical intelligence on the pitch.'
   },
   {
@@ -44,7 +51,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Zohaib',
     jerseyNumber: 5,
     position: 'Defender',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698849/IMG-20250317-WA0071_ctyrcq.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698849/IMG-20250317-WA0071_ctyrcq.jpg'),
     bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
   },
   {
@@ -52,7 +59,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Mudassir',
     jerseyNumber: 7,
     position: 'Striker',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg'),
     bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
   },
   {
@@ -60,7 +67,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Tayyab',
     jerseyNumber: 7,
     position: 'Defender',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698097/IMG-20251123-WA0170_md2oy1.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698097/IMG-20251123-WA0170_md2oy1.jpg'),
     bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
   },
   {
@@ -68,7 +75,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Suleman',
     jerseyNumber: 8,
     position: 'Right Wing Back',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679689/player6_myfwq7.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769679689/player6_myfwq7.jpg'),
     bio: 'Skillful Right wing back  with excellent crossing ability and tactical intelligence on the pitch.'
   },
   {
@@ -76,7 +83,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Umer',
     jerseyNumber: 1,
     position: 'Goalkeeper',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg'),
     bio: 'Best Goalkeeper in lahore'
   },
   {
@@ -84,7 +91,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Shahid',
     jerseyNumber: 17,
     position: 'Midfielder',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679681/player1_ebfejw.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769679681/player1_ebfejw.jpg'),
     bio: 'Dynamic midfielder with exceptional vision and passing ability. Known for controlling the tempo of the game.'
   },
   {
@@ -92,7 +99,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Hanzla',
     jerseyNumber: 4,
     position: 'Defender',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698759/IMG-20241222-WA0033_rwjbbb.jpg'),
     bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
   },
   {
@@ -100,7 +107,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Arslan',
     jerseyNumber: 14,
     position: 'Defender',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player5_om8l1g.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player5_om8l1g.jpg'),
     bio: 'Solid defender with strong positioning and aerial dominance. A reliable presence in the backline.'
   },
   {
@@ -108,7 +115,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Musayab',
     jerseyNumber: 7,
     position: 'Left Wing Back',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player3_sjezop.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player3_sjezop.jpg'),
     bio: 'Skillful left wing back  with excellent crossing ability and tactical intelligence on the pitch.'
   },
   {
@@ -116,7 +123,7 @@ const SENIOR_SQUAD: Player[] = [
     name: ' zeeshan',
     jerseyNumber: 7,
     position: 'Striker',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player4_vn1ktn.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769679683/player4_vn1ktn.jpg'),
     bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
   },
   {
@@ -124,7 +131,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Musa',
     jerseyNumber: 7,
     position: 'Striker',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699043/IMG-20251018-WA0091_xnrwet.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769699043/IMG-20251018-WA0091_xnrwet.jpg'),
     bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
   },
   {
@@ -132,7 +139,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Raheel',
     jerseyNumber: 10,
     position: 'Striker',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698025/IMG-20251206-WA0000_k4oges.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698025/IMG-20251206-WA0000_k4oges.jpg'),
     bio: 'Clinical striker with natural goal-scoring instinct. Leads the attack with pace, power, and precision.'
   },
   {
@@ -140,7 +147,7 @@ const SENIOR_SQUAD: Player[] = [
     name: 'Mudassir jr',
     jerseyNumber: 6,
     position: 'Midfielder',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698020/IMG-20260129-WA0090_p4usev.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698020/IMG-20260129-WA0090_p4usev.jpg'),
     bio: 'Dynamic midfielder with exceptional vision and passing ability. Known for controlling the tempo of the game.'
   },
 ];
@@ -152,7 +159,7 @@ const YOUTH_SQUAD: Player[] = [
     name: 'Rizwan',
     jerseyNumber: 23,
     position: 'Forward',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699055/IMG-20250812-WA0006_jsgxsx.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769699055/IMG-20250812-WA0006_jsgxsx.jpg'),
     bio: 'Promising young forward with great potential. Quick on the ball and eager to learn from senior players.'
   },
   {
@@ -160,7 +167,7 @@ const YOUTH_SQUAD: Player[] = [
     name: 'Ikram',
     jerseyNumber: 1,
     position: ' Goalkeeper',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698851/IMG-20250413-WA0028_kxitlp.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698851/IMG-20250413-WA0028_kxitlp.jpg'),
     bio: 'Talented academy Goalkeeper with excellent ball control. Shows maturity beyond his years in decision-making.'
   },
   {
@@ -168,7 +175,7 @@ const YOUTH_SQUAD: Player[] = [
     name: 'Haseeb',
     jerseyNumber: 15,
     position: 'Midfielder',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698039/IMG-20260129-WA0025_nrzetq.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698039/IMG-20260129-WA0025_nrzetq.jpg'),
     bio: 'Agile young midfielder with sharp reflexes. Demonstrates strong command of the penalty area and distribution.'
   },
   {
@@ -176,7 +183,7 @@ const YOUTH_SQUAD: Player[] = [
     name: 'Ayyan',
     jerseyNumber: 8,
     position: 'Midfielder',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698072/IMG-20260129-WA0013_ycrkqo.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698072/IMG-20260129-WA0013_ycrkqo.jpg'),
     bio: 'Agile young midfielder with sharp reflexes. Demonstrates strong command of the penalty area and distribution.'
   },
   {
@@ -184,7 +191,7 @@ const YOUTH_SQUAD: Player[] = [
     name: 'Zain',
     jerseyNumber: 10,
     position: 'Forward',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698066/IMG-20260129-WA0017_p8mhqt.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698066/IMG-20260129-WA0017_p8mhqt.jpg'),
     bio: 'Promising young forward with great potential. Quick on the ball and eager to learn from senior players.'
   },
   {
@@ -192,7 +199,7 @@ const YOUTH_SQUAD: Player[] = [
     name: 'Haider',
     jerseyNumber: 1,
     position: ' Goalkeeper',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698062/IMG-20260129-WA0018_nwzxmr.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698062/IMG-20260129-WA0018_nwzxmr.jpg'),
     bio: 'Talented academy Goalkeeper with excellent ball control. Shows maturity beyond his years in decision-making.'
   },
   {
@@ -200,7 +207,7 @@ const YOUTH_SQUAD: Player[] = [
     name: 'Khizer',
     jerseyNumber: 10,
     position: 'Forward',
-    photo: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698045/IMG-20260129-WA0023_ufosdm.jpg',
+    photo: optimizeCloudinary('https://res.cloudinary.com/deak2c1my/image/upload/v1769698045/IMG-20260129-WA0023_ufosdm.jpg'),
     bio: 'Promising young forward with great potential. Quick on the ball and eager to learn from senior players.'
   },
 ];

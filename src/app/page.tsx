@@ -14,10 +14,9 @@ export default function HomePage() {
   // Slide Config
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    'https://res.cloudinary.com/deak2c1my/image/upload/v1769698834/IMG-20250312-WA0023_utsfyv.jpg',
-    'https://res.cloudinary.com/deak2c1my/image/upload/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg',
-    'https://res.cloudinary.com/deak2c1my/image/upload/v1769699045/IMG-20251018-WA0040_hbaowq.jpg',
-
+    'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769698834/IMG-20250312-WA0023_utsfyv.jpg',
+    'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg',
+    'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769699045/IMG-20251018-WA0040_hbaowq.jpg',
   ];
 
   useEffect(() => {
@@ -69,23 +68,20 @@ export default function HomePage() {
 
       {/* Background Slideshow */}
       <div className="fixed inset-0 z-0">
-        {slides.map((slide, index) => (
-          <div
-            key={slide}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-70' : 'opacity-0'}`}
-          >
-            <Image
-              src={slide || '/logo.svg'} // Fallback to logo if slide is empty
-              alt="Club Background"
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-            {/* Dark Gradient Overlay for readability */}
-            <div className="absolute inset-0 bg-slate-950/60 mixed-blend-multiply" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/20" />
-          </div>
-        ))}
+        <div className="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-70">
+          <Image
+            src={slides[currentSlide] || '/logo.svg'}
+            alt="Club Background"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+            quality={60}
+          />
+          {/* Dark Gradient Overlay for readability */}
+          <div className="absolute inset-0 bg-slate-950/60 mixed-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/20" />
+        </div>
 
         {/* Decorative Background Blobs Overlay */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse-glow opacity-50" />
@@ -189,13 +185,13 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'md:col-span-2 md:row-span-2' },
-              { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679646/club4_ov2upg.jpg', span: 'md:col-span-2' },
-              { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
+              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'md:col-span-2 md:row-span-2' },
+              { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
+              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
+              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg', span: 'md:col-span-2' },
+              { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'col-span-1' },
+              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
+              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
             ].map((item, idx) => (
               <div key={idx} className={`group relative overflow-hidden rounded-2xl bg-slate-900 aspect-square ${item.span} cursor-pointer`}>
                 <Image
@@ -203,6 +199,7 @@ export default function HomePage() {
                   alt={`Gallery ${idx}`}
                   fill
                   className="object-contain transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   {item.type === 'video' ? (
@@ -250,9 +247,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* History Image Cards */}
             {[
-              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679646/club4_ov2upg.jpg', year: '2007', title: 'The Beginning', desc: 'Founded with a vision to develop football talent in Lahore' },
-              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679646/club4_ov2upg.jpg', year: '2015', title: 'Rising Stars', desc: 'Our academy program produces top-tier players' },
-              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679646/club4_ov2upg.jpg', year: '2024', title: 'Champions Era', desc: 'Competing at the highest level with pride' }
+              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2007', title: 'The Beginning', desc: 'Founded with a vision to develop football talent in Lahore' },
+              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2015', title: 'Rising Stars', desc: 'Our academy program produces top-tier players' },
+              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2024', title: 'Champions Era', desc: 'Competing at the highest level with pride' }
             ].map((item, idx) => (
               <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-panel border-0">
                 <Image
@@ -260,6 +257,7 @@ export default function HomePage() {
                   alt={item.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -444,10 +442,11 @@ export default function HomePage() {
             <div className="relative order-1 lg:order-2">
               <div className="relative aspect-square rounded-3xl overflow-hidden glass-panel border-white/10 border-2 group">
                 <Image
-                  src="https://res.cloudinary.com/deak2c1my/image/upload/v1769679646/club4_ov2upg.jpg"
+                  src="https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg"
                   alt="Philosophy"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
 

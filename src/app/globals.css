@@ -38,7 +38,8 @@
     background-image:
       radial-gradient(circle at 15% 50%, rgba(132, 204, 22, 0.1), transparent 25%),
       radial-gradient(circle at 85% 30%, rgba(2, 6, 23, 0.1), transparent 25%);
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
+    /* Removed for mobile performance (major lag cause) */
   }
 
   h1,
@@ -53,11 +54,20 @@
 
 @layer utilities {
   .glass-panel {
-    @apply backdrop-blur-xl bg-surface-dark border border-white/10 shadow-xl;
+    @apply bg-surface-dark border border-white/10 shadow-xl;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Reduce blur on mobile for performance */
+  @media (max-width: 768px) {
+    .glass-panel {
+      backdrop-filter: blur(4px);
+    }
   }
 
   .glass-button {
-    @apply bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all duration-300;
+    @apply bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300;
+    backdrop-filter: blur(4px);
   }
 
   .text-glow {
@@ -126,6 +136,7 @@
 
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
+  will-change: transform, opacity;
 }
 
 /* Scrollbar Styling */
