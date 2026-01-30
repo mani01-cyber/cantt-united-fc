@@ -58,6 +58,7 @@ export default function Navigation() {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/squad">Squad</NavLink>
+            <NavLink href="/gallery">Gallery</NavLink>
             <NavLink href="/contact">Contact</NavLink>
 
             {session?.user ? (
@@ -102,6 +103,7 @@ export default function Navigation() {
             <MobileNavLink href="/" onClick={() => setIsOpen(false)}>Home</MobileNavLink>
             <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
             <MobileNavLink href="/squad" onClick={() => setIsOpen(false)}>Squad</MobileNavLink>
+            <MobileNavLink href="/gallery" onClick={() => setIsOpen(false)}>Gallery</MobileNavLink>
             <MobileNavLink href="/contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
 
             <div className="h-px bg-white/10 my-4" />

@@ -54,7 +54,7 @@ export const trialSchema = z.object({
   fullName: z.string().min(2, "Full name required"),
   age: z.number().int().min(15).max(50),
   position: z.enum(["GOALKEEPER", "DEFENDER", "MIDFIELDER", "STRIKER"]),
-  phone: z.string().regex(/^\+?[0-9\-\s]{10,}/, "Invalid phone number"),
+  phone: z.string().regex(/^\+?[0-9\-\s\(\)]{7,20}$/, "Invalid phone number format"),
   email: z.string().email("Invalid email address"),
 });
 // Contact Schemas

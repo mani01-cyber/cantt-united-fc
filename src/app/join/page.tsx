@@ -110,6 +110,12 @@ export default function JoinUsPage() {
 
               <h2 className="text-2xl font-bold text-white mb-6">Trial Application</h2>
 
+              {error && (
+                <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm animate-shake">
+                  {error}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="space-y-1">
                   <label className="text-sm font-bold text-slate-400 ml-1">Full Name</label>
@@ -121,6 +127,7 @@ export default function JoinUsPage() {
                     required
                     className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-slate-600"
                     placeholder="Lionel Messi"
+                    autoComplete="name"
                   />
                 </div>
 
@@ -135,6 +142,7 @@ export default function JoinUsPage() {
                       required
                       min="15" max="50"
                       className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-slate-600"
+                      inputMode="numeric"
                       placeholder="18"
                     />
                   </div>
@@ -164,6 +172,8 @@ export default function JoinUsPage() {
                     required
                     className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-slate-600"
                     placeholder="+92 300 0000000"
+                    inputMode="tel"
+                    autoComplete="tel"
                   />
                 </div>
 
@@ -177,6 +187,7 @@ export default function JoinUsPage() {
                     required
                     className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder:text-slate-600"
                     placeholder="you@example.com"
+                    autoComplete="email"
                   />
                 </div>
 

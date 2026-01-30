@@ -129,7 +129,7 @@ export default function HomePage() {
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Built for <span className="text-primary text-glow">Greatness</span></h2>
             <p className="text-slate-400 text-lg">
-              We don't just play football; we cultivate talent, build character, and foster a championship mindset.
+              We don&apos;t just play football; we cultivate talent, build character, and foster a championship mindset.
             </p>
           </div>
 
@@ -171,65 +171,42 @@ export default function HomePage() {
       <section className="relative z-10 py-24 px-4 bg-slate-950 border-t border-white/5">
         <LazyShow>
           <div className="container mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
               <div className="max-w-2xl">
                 <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
                   THE <span className="text-primary text-glow">GALLERY</span>
                 </h2>
                 <p className="text-slate-400">Capturing the intensity, passion, and spirit of Cantt United on and off the pitch.</p>
               </div>
-              <div className="flex gap-4">
-                <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-white font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">ALL MEDIA</div>
-                <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">PHOTOS</div>
-                <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">VIDEOS</div>
+              <Link
+                href="/gallery"
+                className="hidden md:flex items-center gap-2 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-black transition-all group"
+              >
+                VIEW FULL GALLERY <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            <div className="relative group overflow-hidden rounded-3xl aspect-[16/9] md:aspect-[21/9] glass-panel border-white/10">
+              <Image
+                src="https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769698834/IMG-20250312-WA0023_utsfyv.jpg"
+                alt="Gallery Teaser"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                sizes="100vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex items-center justify-center">
+                <Link
+                  href="/gallery"
+                  className="md:hidden flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-black font-bold shadow-xl shadow-primary/25"
+                >
+                  EXPLORE GALLERY <ChevronRight size={20} />
+                </Link>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'md:col-span-2 md:row-span-2' },
-                { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
-                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
-                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg', span: 'md:col-span-2' },
-                { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'col-span-1' },
-                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
-                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
-              ].map((item, idx) => (
-                <div key={idx} className={`group relative overflow-hidden rounded-2xl bg-slate-900 aspect-square ${item.span} cursor-pointer`}>
-                  <Image
-                    src={item.url}
-                    alt={`Gallery ${idx}`}
-                    fill
-                    className="object-contain transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    {item.type === 'video' ? (
-                      <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center text-black scale-90 group-hover:scale-100 transition-transform">
-                        <Play fill="currentColor" size={32} />
-                      </div>
-                    ) : (
-                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform">
-                        <Camera size={32} />
-                      </div>
-                    )}
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 text-center">
-                    <span className="text-white font-bold text-[10px] tracking-widest uppercase bg-primary/80 px-2 py-1 rounded">
-                      {item.type}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 text-center">
-              <Link
-                href="/gallery"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-black transition-all group shadow-lg shadow-primary/10"
-              >
-                VIEW ALL MEDIA <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <div className="mt-8 text-center md:hidden">
+              {/* Optional: Add a smaller link or text here if needed */}
             </div>
           </div>
         </LazyShow>
@@ -244,7 +221,7 @@ export default function HomePage() {
                 OUR <span className="text-primary text-glow">JOURNEY</span>
               </h2>
               <p className="text-slate-400 max-w-2xl mx-auto">
-                From humble beginnings to becoming one of Lahore's most respected football clubs, our story is one of passion, dedication, and excellence.
+                From humble beginnings to becoming one of Lahore&apos;s most respected football clubs, our story is one of passion, dedication, and excellence.
               </p>
             </div>
 
@@ -420,7 +397,7 @@ export default function HomePage() {
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">UNITED WAY</span>
                 </h2>
                 <p className="text-xl text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-                  We believe in power, precision, and the relentless pursuit of excellence. Our club isn't just about winning games; it's about building a legacy that inspires the next generation of Pakistani champions.
+                  We believe in power, precision, and the relentless pursuit of excellence. Our club isn&apos;t just about winning games; it&apos;s about building a legacy that inspires the next generation of Pakistani champions.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">

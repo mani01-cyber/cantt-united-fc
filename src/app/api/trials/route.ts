@@ -33,7 +33,8 @@ export async function POST(request: NextRequest) {
 
     return apiResponse(trial, 'Trial registration successful', 201);
   } catch (error: any) {
-    return apiError(error.message, 400);
+    console.error('Trial Registration API Error:', error);
+    return apiError(error.message || 'Registration failed', 400);
   }
 }
 
