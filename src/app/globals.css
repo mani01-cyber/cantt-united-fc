@@ -40,6 +40,9 @@
       radial-gradient(circle at 85% 30%, rgba(2, 6, 23, 0.1), transparent 25%);
     /* background-attachment: fixed; */
     /* Removed for mobile performance (major lag cause) */
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
   }
 
   h1,

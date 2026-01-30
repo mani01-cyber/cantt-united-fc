@@ -12,10 +12,22 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let lastScrollTime = 0;
+    const throttleDelay = 100; // ms
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const now = Date.now();
+      if (now - lastScrollTime >= throttleDelay) {
+        const isScrolled = window.scrollY > 20;
+        setScrolled(isScrolled);
+        lastScrollTime = now;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on mount to set initial state
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

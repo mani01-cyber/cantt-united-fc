@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import LazyShow from '@/components/LazyShow';
 
 type Player = {
   id: string;
@@ -253,6 +255,7 @@ function SquadSlider({ title, players, accentColor }: { title: string; players: 
                 alt="Previous"
                 fill
                 className="object-cover object-top rounded-lg"
+                sizes="220px"
               />
             </div>
           </div>
@@ -271,6 +274,7 @@ function SquadSlider({ title, players, accentColor }: { title: string; players: 
               fill
               className="object-cover object-top rounded-lg shadow-2xl"
               priority
+              sizes="(max-width: 768px) 280px, 350px"
             />
 
             {/* Jersey Number Overlay */}
@@ -292,6 +296,7 @@ function SquadSlider({ title, players, accentColor }: { title: string; players: 
                 alt="Next"
                 fill
                 className="object-cover object-top rounded-lg"
+                sizes="220px"
               />
             </div>
           </div>
@@ -388,20 +393,24 @@ export default function SquadPage() {
 
         {/* Senior Squad Section */}
         <div className="mb-20">
-          <SquadSlider
-            title="Senior Squad"
-            players={SENIOR_SQUAD}
-            accentColor="bg-primary"
-          />
+          <LazyShow>
+            <SquadSlider
+              title="Senior Squad"
+              players={SENIOR_SQUAD}
+              accentColor="bg-primary"
+            />
+          </LazyShow>
         </div>
 
         {/* Youth Academy Section */}
         <div className="mb-12">
-          <SquadSlider
-            title="Youth Academy"
-            players={YOUTH_SQUAD}
-            accentColor="bg-emerald-500"
-          />
+          <LazyShow>
+            <SquadSlider
+              title="Youth Academy"
+              players={YOUTH_SQUAD}
+              accentColor="bg-emerald-500"
+            />
+          </LazyShow>
         </div>
 
       </div>

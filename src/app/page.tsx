@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CldImage } from 'next-cloudinary';
 import { ChevronRight, Trophy, Users, Zap, Clock, MapPin, Calendar, Play, Camera, Shield, Target } from 'lucide-react';
+import LazyShow from '@/components/LazyShow';
 
 export default function HomePage() {
   const [nextMatch, setNextMatch] = useState<any>(null);
@@ -168,133 +169,137 @@ export default function HomePage() {
 
       {/* Media Gallery Section - Photos & Videos */}
       <section className="relative z-10 py-24 px-4 bg-slate-950 border-t border-white/5">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
-                THE <span className="text-primary text-glow">GALLERY</span>
-              </h2>
-              <p className="text-slate-400">Capturing the intensity, passion, and spirit of Cantt United on and off the pitch.</p>
-            </div>
-            <div className="flex gap-4">
-              <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-white font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">ALL MEDIA</div>
-              <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">PHOTOS</div>
-              <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">VIDEOS</div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'md:col-span-2 md:row-span-2' },
-              { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg', span: 'md:col-span-2' },
-              { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
-              { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
-            ].map((item, idx) => (
-              <div key={idx} className={`group relative overflow-hidden rounded-2xl bg-slate-900 aspect-square ${item.span} cursor-pointer`}>
-                <Image
-                  src={item.url}
-                  alt={`Gallery ${idx}`}
-                  fill
-                  className="object-contain transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  {item.type === 'video' ? (
-                    <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center text-black scale-90 group-hover:scale-100 transition-transform">
-                      <Play fill="currentColor" size={32} />
-                    </div>
-                  ) : (
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform">
-                      <Camera size={32} />
-                    </div>
-                  )}
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 text-center">
-                  <span className="text-white font-bold text-[10px] tracking-widest uppercase bg-primary/80 px-2 py-1 rounded">
-                    {item.type}
-                  </span>
-                </div>
+        <LazyShow>
+          <div className="container mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+              <div className="max-w-2xl">
+                <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
+                  THE <span className="text-primary text-glow">GALLERY</span>
+                </h2>
+                <p className="text-slate-400">Capturing the intensity, passion, and spirit of Cantt United on and off the pitch.</p>
               </div>
-            ))}
-          </div>
+              <div className="flex gap-4">
+                <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-white font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">ALL MEDIA</div>
+                <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">PHOTOS</div>
+                <div className="px-6 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 font-bold text-sm cursor-pointer hover:bg-white/10 transition-colors">VIDEOS</div>
+              </div>
+            </div>
 
-          <div className="mt-12 text-center">
-            <Link
-              href="/gallery"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-black transition-all group shadow-lg shadow-primary/10"
-            >
-              VIEW ALL MEDIA <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'md:col-span-2 md:row-span-2' },
+                { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
+                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
+                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg', span: 'md:col-span-2' },
+                { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', span: 'col-span-1' },
+                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', span: 'col-span-1' },
+                { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_500/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', span: 'col-span-1' },
+              ].map((item, idx) => (
+                <div key={idx} className={`group relative overflow-hidden rounded-2xl bg-slate-900 aspect-square ${item.span} cursor-pointer`}>
+                  <Image
+                    src={item.url}
+                    alt={`Gallery ${idx}`}
+                    fill
+                    className="object-contain transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    {item.type === 'video' ? (
+                      <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center text-black scale-90 group-hover:scale-100 transition-transform">
+                        <Play fill="currentColor" size={32} />
+                      </div>
+                    ) : (
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform">
+                        <Camera size={32} />
+                      </div>
+                    )}
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 text-center">
+                    <span className="text-white font-bold text-[10px] tracking-widest uppercase bg-primary/80 px-2 py-1 rounded">
+                      {item.type}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link
+                href="/gallery"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 text-primary font-bold hover:bg-primary hover:text-black transition-all group shadow-lg shadow-primary/10"
+              >
+                VIEW ALL MEDIA <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </LazyShow>
       </section>
 
       {/* Club History Section */}
       <section className="relative z-10 py-24 px-4 bg-slate-950 border-t border-white/5">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
-              OUR <span className="text-primary text-glow">JOURNEY</span>
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              From humble beginnings to becoming one of Lahore's most respected football clubs, our story is one of passion, dedication, and excellence.
-            </p>
-          </div>
+        <LazyShow>
+          <div className="container mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
+                OUR <span className="text-primary text-glow">JOURNEY</span>
+              </h2>
+              <p className="text-slate-400 max-w-2xl mx-auto">
+                From humble beginnings to becoming one of Lahore's most respected football clubs, our story is one of passion, dedication, and excellence.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {/* History Image Cards */}
-            {[
-              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2007', title: 'The Beginning', desc: 'Founded with a vision to develop football talent in Lahore' },
-              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2015', title: 'Rising Stars', desc: 'Our academy program produces top-tier players' },
-              { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2024', title: 'Champions Era', desc: 'Competing at the highest level with pride' }
-            ].map((item, idx) => (
-              <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-panel border-0">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="text-primary font-black text-2xl mb-2">{item.year}</div>
-                  <h3 className="text-white font-bold text-xl mb-2">{item.title}</h3>
-                  <p className="text-slate-300 text-sm">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Timeline */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
-            <div className="space-y-12">
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {/* History Image Cards */}
               {[
-                { year: '2007', event: 'Club Founded', desc: 'Cantt United established in Lahore' },
-                { year: '2010', event: 'First Championship', desc: 'Won our first local tournament' },
-                { year: '2015', event: 'Academy Launch', desc: 'Youth development program initiated' },
-                { year: '2020', event: 'Professional Status', desc: 'Achieved professional club status' },
-                { year: '2024', event: 'Regional Champions', desc: 'Dominating the regional league' }
-              ].map((milestone, idx) => (
-                <div key={idx} className={`flex items-center gap-8 ${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`flex-1 ${idx % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    <div className="inline-block glass-panel px-6 py-4 rounded-xl">
-                      <div className="text-primary font-black text-lg mb-1">{milestone.year}</div>
-                      <h4 className="text-white font-bold mb-1">{milestone.event}</h4>
-                      <p className="text-slate-400 text-sm">{milestone.desc}</p>
-                    </div>
+                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2007', title: 'The Beginning', desc: 'Founded with a vision to develop football talent in Lahore' },
+                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2015', title: 'Rising Stars', desc: 'Our academy program produces top-tier players' },
+                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2024', title: 'Champions Era', desc: 'Competing at the highest level with pride' }
+              ].map((item, idx) => (
+                <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-panel border-0">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="text-primary font-black text-2xl mb-2">{item.year}</div>
+                    <h3 className="text-white font-bold text-xl mb-2">{item.title}</h3>
+                    <p className="text-slate-300 text-sm">{item.desc}</p>
                   </div>
-                  <div className="w-4 h-4 rounded-full bg-primary border-4 border-slate-950 relative z-10 flex-shrink-0" />
-                  <div className="flex-1" />
                 </div>
               ))}
             </div>
+
+            {/* Timeline */}
+            <div className="relative max-w-4xl mx-auto">
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
+              <div className="space-y-12">
+                {[
+                  { year: '2007', event: 'Club Founded', desc: 'Cantt United established in Lahore' },
+                  { year: '2010', event: 'First Championship', desc: 'Won our first local tournament' },
+                  { year: '2015', event: 'Academy Launch', desc: 'Youth development program initiated' },
+                  { year: '2020', event: 'Professional Status', desc: 'Achieved professional club status' },
+                  { year: '2024', event: 'Regional Champions', desc: 'Dominating the regional league' }
+                ].map((milestone, idx) => (
+                  <div key={idx} className={`flex items-center gap-8 ${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                    <div className={`flex-1 ${idx % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                      <div className="inline-block glass-panel px-6 py-4 rounded-xl">
+                        <div className="text-primary font-black text-lg mb-1">{milestone.year}</div>
+                        <h4 className="text-white font-bold mb-1">{milestone.event}</h4>
+                        <p className="text-slate-400 text-sm">{milestone.desc}</p>
+                      </div>
+                    </div>
+                    <div className="w-4 h-4 rounded-full bg-primary border-4 border-slate-950 relative z-10 flex-shrink-0" />
+                    <div className="flex-1" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </LazyShow>
       </section>
 
       {/* By The Numbers Section */}
@@ -403,63 +408,65 @@ export default function HomePage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]" />
         </div>
 
-        <div className="container mx-auto relative border-y border-white/5 py-24">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest">
-                <Shield size={14} /> Our Philosophy
-              </div>
-              <h2 className="text-5xl md:text-7xl font-black text-white italic leading-[0.9] tracking-tighter text-center lg:text-left">
-                THE <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">UNITED WAY</span>
-              </h2>
-              <p className="text-xl text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-                We believe in power, precision, and the relentless pursuit of excellence. Our club isn't just about winning games; it's about building a legacy that inspires the next generation of Pakistani champions.
-              </p>
+        <LazyShow>
+          <div className="container mx-auto relative border-y border-white/5 py-24">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8 order-2 lg:order-1">
+                <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest">
+                  <Shield size={14} /> Our Philosophy
+                </div>
+                <h2 className="text-5xl md:text-7xl font-black text-white italic leading-[0.9] tracking-tighter text-center lg:text-left">
+                  THE <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">UNITED WAY</span>
+                </h2>
+                <p className="text-xl text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                  We believe in power, precision, and the relentless pursuit of excellence. Our club isn't just about winning games; it's about building a legacy that inspires the next generation of Pakistani champions.
+                </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div className="flex flex-col items-center lg:items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                    <Target className="text-primary w-6 h-6" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                  <div className="flex flex-col items-center lg:items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                      <Target className="text-primary w-6 h-6" />
+                    </div>
+                    <div className="text-center lg:text-left">
+                      <h4 className="text-white font-bold mb-1">Elite Training</h4>
+                      <p className="text-slate-400 text-sm">Pro-level technical drills and tactical mastery.</p>
+                    </div>
                   </div>
-                  <div className="text-center lg:text-left">
-                    <h4 className="text-white font-bold mb-1">Elite Training</h4>
-                    <p className="text-slate-400 text-sm">Pro-level technical drills and tactical mastery.</p>
+                  <div className="flex flex-col items-center lg:items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                      <Users className="text-accent w-6 h-6" />
+                    </div>
+                    <div className="text-center lg:text-left">
+                      <h4 className="text-white font-bold mb-1">Global Vision</h4>
+                      <p className="text-slate-400 text-sm">Connecting local talent to international standards.</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col items-center lg:items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                    <Users className="text-accent w-6 h-6" />
-                  </div>
-                  <div className="text-center lg:text-left">
-                    <h4 className="text-white font-bold mb-1">Global Vision</h4>
-                    <p className="text-slate-400 text-sm">Connecting local talent to international standards.</p>
-                  </div>
-                </div>
               </div>
-            </div>
 
-            <div className="relative order-1 lg:order-2">
-              <div className="relative aspect-square rounded-3xl overflow-hidden glass-panel border-white/10 border-2 group">
-                <Image
-                  src="https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg"
-                  alt="Philosophy"
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+              <div className="relative order-1 lg:order-2">
+                <div className="relative aspect-square rounded-3xl overflow-hidden glass-panel border-white/10 border-2 group">
+                  <Image
+                    src="https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg"
+                    alt="Philosophy"
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
 
-                {/* Floating Elements for "Professional" feel */}
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute top-10 right-10 p-4 rounded-2xl glass-panel border-white/10 bg-slate-900/40 backdrop-blur-xl hidden md:block">
-                  <div className="text-primary font-black text-2xl">100%</div>
-                  <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider text-center">Commitment</div>
+                  {/* Floating Elements for "Professional" feel */}
+                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+                  <div className="absolute top-10 right-10 p-4 rounded-2xl glass-panel border-white/10 bg-slate-900/40 backdrop-blur-xl hidden md:block">
+                    <div className="text-primary font-black text-2xl">100%</div>
+                    <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider text-center">Commitment</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </LazyShow>
       </section>
 
       {/* Sponsors/Ticker Section - NEW */}

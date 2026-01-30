@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronLeft, Play, Camera, X } from 'lucide-react';
+import LazyShow from '@/components/LazyShow';
 
 // Helper to get thumbnail from Cloudinary URL (supports both image and video embed URLs)
 const getMediaPreview = (item: { type: string; url: string }) => {
@@ -143,39 +144,41 @@ export default function GalleryPage() {
 
             {/* Grid - Masonry style layout to show entire images */}
             <div className="container mx-auto px-4">
-                <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 md:gap-8 space-y-6 md:space-y-8">
-                    {filteredItems.map((item, idx) => (
-                        <div
-                            key={idx}
-                            className="break-inside-avoid group relative rounded-3xl overflow-hidden glass-panel border-white/5 bg-slate-900/50 cursor-pointer"
-                            onClick={() => item.type === 'video' ? setActiveVideo(item.url) : null}
-                        >
-                            <img
-                                src={getMediaPreview(item)}
-                                alt={item.title}
-                                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
-                                loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                {item.type === 'video' ? (
-                                    <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center text-black scale-90 group-hover:scale-100 transition-transform">
-                                        <Play fill="currentColor" size={32} />
-                                    </div>
-                                ) : (
-                                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform">
-                                        <Camera size={32} />
-                                    </div>
-                                )}
-                            </div>
-                            <div className="absolute inset-0 pointer-events-none border-2 border-primary/0 group-hover:border-primary/50 transition-colors rounded-3xl" />
+                <LazyShow>
+                    <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 md:gap-8 space-y-6 md:space-y-8">
+                        {filteredItems.map((item, idx) => (
+                            <div
+                                key={idx}
+                                className="break-inside-avoid group relative rounded-3xl overflow-hidden glass-panel border-white/5 bg-slate-900/50 cursor-pointer"
+                                onClick={() => item.type === 'video' ? setActiveVideo(item.url) : null}
+                            >
+                                <img
+                                    src={getMediaPreview(item)}
+                                    alt={item.title}
+                                    className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    {item.type === 'video' ? (
+                                        <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center text-black scale-90 group-hover:scale-100 transition-transform">
+                                            <Play fill="currentColor" size={32} />
+                                        </div>
+                                    ) : (
+                                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform">
+                                            <Camera size={32} />
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="absolute inset-0 pointer-events-none border-2 border-primary/0 group-hover:border-primary/50 transition-colors rounded-3xl" />
 
-                            <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 text-center">
-                                <span className="text-[10px] font-black tracking-[0.2em] text-primary uppercase mb-1 block">{item.type}</span>
-                                <h3 className="text-white font-bold text-lg uppercase italic">{item.title}</h3>
+                                <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 text-center">
+                                    <span className="text-[10px] font-black tracking-[0.2em] text-primary uppercase mb-1 block">{item.type}</span>
+                                    <h3 className="text-white font-bold text-lg uppercase italic">{item.title}</h3>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                </LazyShow>
             </div>
 
             {/* Bottom CTA */}
