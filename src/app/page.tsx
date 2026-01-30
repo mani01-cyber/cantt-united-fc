@@ -202,7 +202,7 @@ export default function HomePage() {
                   src={item.url}
                   alt={`Gallery ${idx}`}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-contain transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   {item.type === 'video' ? (

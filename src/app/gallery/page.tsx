@@ -1,29 +1,93 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronLeft, Play, Camera, Filter } from 'lucide-react';
+import { ChevronLeft, Play, Camera, X } from 'lucide-react';
+
+// Helper to get thumbnail from Cloudinary URL (supports both image and video embed URLs)
+const getMediaPreview = (item: { type: string; url: string }) => {
+    if (item.type === 'photo') return item.url;
+
+    // For video embed URLs like: https://player.cloudinary.com/embed/?cloud_name=deak2c1my&public_id=VID-20260127-WA0010_moj2qy
+    if (item.url.includes('player.cloudinary.com')) {
+        const urlParams = new URLSearchParams(item.url.split('?')[1]);
+        const cloudName = urlParams.get('cloud_name');
+        const publicId = urlParams.get('public_id');
+        if (cloudName && publicId) {
+            return `https://res.cloudinary.com/${cloudName}/video/upload/v1/${publicId}.jpg`;
+        }
+    }
+
+    // Fallback for standard video upload URLs
+    if (item.url.includes('video/upload')) {
+        return item.url.replace('/video/upload/', '/video/upload/').replace(/\.[^/.]+$/, ".jpg");
+    }
+
+    return item.url;
+};
+
+function VideoModal({ url, onClose }: { url: string; onClose: () => void }) {
+    useEffect(() => {
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleEsc);
+        document.body.style.overflow = 'hidden';
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+            document.body.style.overflow = 'auto';
+        };
+    }, [onClose]);
+
+    return (
+        <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-10"
+            onClick={onClose}
+        >
+            <button
+                className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-[110]"
+                onClick={onClose}
+            >
+                <X size={40} />
+            </button>
+            <div
+                className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <iframe
+                    src={`${url}&autoplay=true`}
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+            </div>
+        </div>
+    );
+}
 
 export default function GalleryPage() {
     const [filter, setFilter] = useState<'all' | 'photo' | 'video'>('all');
+    const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
     const mediaItems = [
-        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', title: 'Team Lineup' },
-        { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', title: 'Match Highlights' },
-        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', title: 'Training Session' },
+        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699045/IMG-20251018-WA0045_fvleqw.jpg', title: 'Team Lineup' },
+        { type: 'video', url: 'https://player.cloudinary.com/embed/?cloud_name=deak2c1my&public_id=VID-20260127-WA0010_moj2qy', title: 'Match Highlights' },
+        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698888/IMG-20250501-WA0043_tb4qag.jpg', title: 'Training Session' },
         { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679646/club4_ov2upg.jpg', title: 'Victory Celebration' },
         { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', title: 'Practice Drills' },
-        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg', title: 'Fans Support' },
-        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699045/IMG-20251018-WA0040_hbaowq.jpg', title: 'Award Ceremony' },
-        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769679646/club4_ov2upg.jpg', title: 'Youth Academy' },
-        { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698834/IMG-20250312-WA0023_utsfyv.jpg', title: 'Coach Talk' },
+        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699034/IMG-20250810-WA0060_ayzaz6.jpg', title: 'Fans Support' },
+        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698777/IMG-20241215-WA0002_ltty8s.jpg', title: 'Award Ceremony' },
+        { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698069/IMG-20260102-WA0022_bihig5.jpg', title: 'Youth Academy' },
+        { type: 'video', url: 'https://player.cloudinary.com/embed/?cloud_name=deak2c1my&public_id=VID-20260127-WA0011_tf1g0w', title: 'OUR pitch' },
     ];
 
     const filteredItems = filter === 'all' ? mediaItems : mediaItems.filter(item => item.type === filter);
 
     return (
         <main className="min-h-screen bg-slate-950 text-white pb-20">
+            {activeVideo && <VideoModal url={activeVideo} onClose={() => setActiveVideo(null)} />}
+
             {/* Header */}
             <div className="relative h-64 md:h-80 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -71,16 +135,19 @@ export default function GalleryPage() {
                 </div>
             </div>
 
-            {/* Grid */}
+            {/* Grid - Masonry style layout to show entire images */}
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 md:gap-8 space-y-6 md:space-y-8">
                     {filteredItems.map((item, idx) => (
-                        <div key={idx} className="group relative aspect-square rounded-3xl overflow-hidden glass-panel border-white/5 group bg-slate-900/50">
-                            <Image
-                                src={item.url}
+                        <div
+                            key={idx}
+                            className="break-inside-avoid group relative rounded-3xl overflow-hidden glass-panel border-white/5 bg-slate-900/50 cursor-pointer"
+                            onClick={() => item.type === 'video' ? setActiveVideo(item.url) : null}
+                        >
+                            <img
+                                src={getMediaPreview(item)}
                                 alt={item.title}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 {item.type === 'video' ? (
