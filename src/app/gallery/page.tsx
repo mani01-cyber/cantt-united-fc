@@ -87,6 +87,7 @@ export default function GalleryPage() {
         { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698777/IMG-20241215-WA0002_ltty8s.jpg', title: 'Award Ceremony' },
         { type: 'photo', url: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769698069/IMG-20260102-WA0022_bihig5.jpg', title: 'Youth Academy' },
         { type: 'video', url: 'https://player.cloudinary.com/embed/?cloud_name=deak2c1my&public_id=VID-20260127-WA0011_tf1g0w', title: 'OUR pitch' },
+        { type: 'video', url: 'https://res.cloudinary.com/deak2c1my/video/upload/v1769940033/VID-20250501-WA0034_rnwimh.mp4', title: 'MS GARRSION TOUR' },
     ];
 
     const filteredItems = filter === 'all' ? mediaItems : mediaItems.filter(item => item.type === filter);

@@ -180,9 +180,9 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {/* History Image Cards */}
               {[
-                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2007', title: 'The Beginning', desc: 'Founded with a vision to develop football talent in Lahore' },
-                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2015', title: 'Rising Stars', desc: 'Our academy program produces top-tier players' },
-                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_600/v1769679646/club4_ov2upg.jpg', year: '2024', title: 'Champions Era', desc: 'Competing at the highest level with pride' }
+                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769940039/IMG-20260130-WA0032_ta51lj.jpg', year: '2007', title: 'The Beginning', desc: 'Founded with a vision to develop football talent in Lahore' },
+                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769940039/IMG-20260130-WA0033_omxa53.jpg', year: '2015', title: 'Rising Stars', desc: 'Our academy program produces top-tier players' },
+                { img: 'https://res.cloudinary.com/deak2c1my/image/upload/v1769699026/IMG-20250622-WA0013_f2p8nc.jpg', year: '2024', title: 'Champions Era', desc: 'Competing at the highest level with pride' }
               ].map((item, idx) => (
                 <div key={idx} className="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-panel border-0">
                   <Image
@@ -378,7 +378,7 @@ export default function HomePage() {
               <div className="relative order-1 lg:order-2">
                 <div className="relative aspect-square rounded-3xl overflow-hidden glass-panel border-white/10 border-2 group">
                   <Image
-                    src="https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_800/v1769679646/club4_ov2upg.jpg"
+                    src="https://res.cloudinary.com/deak2c1my/image/upload/v1769699045/IMG-20251018-WA0040_hbaowq.jpg"
                     alt="Philosophy"
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
