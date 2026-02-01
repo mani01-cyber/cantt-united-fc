@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google"; // Modern, sporty font combination
 import "./globals.css";
-import { Providers } from "./providers";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -43,11 +42,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${outfit.variable} ${inter.variable} antialiased bg-slate-950 text-white font-sans overflow-x-hidden`}
       >
-        <Providers>
-          <Navigation />
-          {children}
-          <Footer />
-        </Providers>
+        <Navigation />
+        {children}
+        <Footer />
         <SpeedInsights />
       </body>
     </html>

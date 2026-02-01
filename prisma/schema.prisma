@@ -10,167 +10,6 @@ datasource db {
   url       = env("DATABASE_URL")
 }
 
-model User {
-  id        String     @id @default(cuid())
-  email     String     @unique
-  password  String
-  role      Role       @default(FAN)
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  
-  player    Player?
-  admin     Admin?
-}
-
-enum Role {
-  FAN
-  PLAYER
-  ADMIN
-}
-
-model Player {
-  id            String   @id @default(cuid())
-  userId        String   @unique
-  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  name          String
-  jerseyNumber  Int
-  position      Position
-  dateOfBirth   DateTime
-  nationality   String
-  photo         String?
-  bio           String?
-  
-  stats         Stats?
-  matchSquads   MatchSquad[]
-  trainingAttendance TrainingAttendance[]
-  
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-}
-
-enum Position {
-  GOALKEEPER
-  DEFENDER
-  MIDFIELDER
-  STRIKER
-}
-
-model Stats {
-  id              String   @id @default(cuid())
-  playerId        String   @unique
-  player          Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
-  
-  matchesPlayed   Int      @default(0)
-  goalsScored     Int      @default(0)
-  assists         Int      @default(0)
-  cleanSheets     Int      @default(0)
-  
-  updatedAt       DateTime @updatedAt
-}
-
-model Admin {
-  id        String   @id @default(cuid())
-  userId    String   @unique
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  name      String
-  role      AdminRole
-  
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-enum AdminRole {
-  MANAGER
-  COACH
-  STAFF
-}
-
-model Fixture {
-  id              String   @id @default(cuid())
-  
-  opponent        String
-  date            DateTime
-  time            String
-  venue           String
-  
-  homeTeam        String   @default("United FC")
-  homeScore       Int?
-  awayScore       Int?
-  
-  matchReport     String?
-  matchSquads     MatchSquad[]
-  
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-}
-
-model MatchSquad {
-  id        String   @id @default(cuid())
-  fixtureId String
-  fixture   Fixture  @relation(fields: [fixtureId], references: [id], onDelete: Cascade)
-  
-  playerId  String
-  player    Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
-  
-  isStarter Boolean  @default(false)
-  
-  createdAt DateTime @default(now())
-  
-  @@unique([fixtureId, playerId])
-}
-
-model Training {
-  id        String   @id @default(cuid())
-  
-  date      DateTime
-  startTime String
-  endTime   String
-  location  String
-  notes     String?
-  
-  attendance TrainingAttendance[]
-  
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model TrainingAttendance {
-  id        String   @id @default(cuid())
-  trainingId String
-  training  Training @relation(fields: [trainingId], references: [id], onDelete: Cascade)
-  
-  playerId  String
-  player    Player   @relation(fields: [playerId], references: [id], onDelete: Cascade)
-  
-  status    AttendanceStatus @default(UNMARKED)
-  
-  createdAt DateTime @default(now())
-  
-  @@unique([trainingId, playerId])
-}
-
-enum AttendanceStatus {
-  PRESENT
-  ABSENT
-  UNMARKED
-}
-
-model News {
-  id        String   @id @default(cuid())
-  
-  title     String
-  slug      String   @unique
-  content   String
-  image     String?
-  
-  published Boolean  @default(false)
-  
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
 model Trial {
   id        String   @id @default(cuid())
   
@@ -187,19 +26,16 @@ model Trial {
   updatedAt DateTime @updatedAt
 }
 
+enum Position {
+  GOALKEEPER
+  DEFENDER
+  MIDFIELDER
+  STRIKER
+}
+
 enum TrialStatus {
   PENDING
   ACCEPTED
   REJECTED
   SCHEDULED
-}
-
-model Announcement {
-  id        String   @id @default(cuid())
-  
-  title     String
-  content   String
-  
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }

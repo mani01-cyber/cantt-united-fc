@@ -25,13 +25,6 @@ export const playerSchema = z.object({
   bio: z.string().optional(),
 });
 
-// Fixture Schemas
-export const fixtureSchema = z.object({
-  opponent: z.string().min(2, "Opponent name required"),
-  date: z.string().datetime(),
-  time: z.string(),
-  venue: z.string().min(2, "Venue required"),
-});
 
 // Training Schemas
 export const trainingSchema = z.object({

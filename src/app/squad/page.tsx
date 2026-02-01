@@ -256,6 +256,7 @@ function SquadSlider({ title, players, accentColor }: { title: string; players: 
                 fill
                 className="object-cover object-top rounded-lg"
                 sizes="220px"
+                unoptimized={true}
               />
             </div>
           </div>
@@ -275,6 +276,7 @@ function SquadSlider({ title, players, accentColor }: { title: string; players: 
               className="object-cover object-top rounded-lg shadow-2xl"
               priority
               sizes="(max-width: 768px) 280px, 350px"
+              unoptimized={true}
             />
 
             {/* Jersey Number Overlay */}
@@ -297,6 +299,7 @@ function SquadSlider({ title, players, accentColor }: { title: string; players: 
                 fill
                 className="object-cover object-top rounded-lg"
                 sizes="220px"
+                unoptimized={true}
               />
             </div>
           </div>

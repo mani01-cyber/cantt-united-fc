@@ -8,90 +8,41 @@ import { ChevronRight, Trophy, Users, Zap, Clock, MapPin, Calendar, Play, Camera
 import LazyShow from '@/components/LazyShow';
 
 export default function HomePage() {
-  const [nextMatch, setNextMatch] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-  // Slide Config
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
-    'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769698834/IMG-20250312-WA0023_utsfyv.jpg',
-    'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769698865/IMG-20250328-WA0093_ssjfg3.jpg',
-    'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769699045/IMG-20251018-WA0040_hbaowq.jpg',
-  ];
+  // Hero Background Image - Optimized
+  const heroImage = 'https://res.cloudinary.com/deak2c1my/image/upload/f_auto,q_auto,w_1920/v1769698834/IMG-20250312-WA0023_utsfyv.jpg';
 
   useEffect(() => {
-    // Slideshow interval
-    const slideTimer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(slideTimer);
-  }, [slides.length]);
-
-
-  useEffect(() => {
-    // Simulated data for immediate visual gratification while API connects
-    const simulatedMatch = {
-      opponent: "Lahore Lions",
-      venue: "United Arena, Lahore",
-      time: "20:00 PST",
-      date: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString() // 5 days from now
-    };
-
-    setNextMatch(simulatedMatch);
     setLoading(false);
   }, []);
-
-  useEffect(() => {
-    if (!nextMatch) return;
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const matchTime = new Date(nextMatch.date).getTime();
-      const distance = matchTime - now;
-
-      if (distance > 0) {
-        setCountdown({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((distance / 1000 / 60) % 60),
-          seconds: Math.floor((distance / 1000) % 60),
-        });
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [nextMatch]);
 
   return (
     <main className="min-h-screen relative bg-slate-950">
 
-      {/* Background Slideshow */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-70">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 pt-20 overflow-hidden">
+        {/* Optimized Hero Background */}
+        <div className="absolute inset-0 z-0">
           <Image
-            src={slides[currentSlide] || '/logo.svg'}
+            src={heroImage}
             alt="Club Background"
             fill
-            className="object-cover"
+            className="object-cover opacity-60"
             priority
             sizes="100vw"
-            quality={60}
+            unoptimized={true}
           />
-          {/* Dark Gradient Overlay for readability */}
-          <div className="absolute inset-0 bg-slate-950/60 mixed-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/20" />
+          {/* Gradients for readability and depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/30" />
+          <div className="absolute inset-0 bg-slate-950/20 mixed-blend-multiply" />
         </div>
 
-        {/* Decorative Background Blobs Overlay */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse-glow opacity-50" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] opacity-50" />
-      </div>
+        {/* Decorative Background Blobs - Slightly simplified for performance */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] animate-pulse-glow opacity-30" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] opacity-30" />
 
-      {/* Hero Section */}
-      <section className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 pt-20">
-        <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
           {/* Hero Content */}
           <div className="space-y-8 text-center lg:text-left animate-fade-in-up">
@@ -124,7 +75,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats/Features Section */}
-      <section className="relative z-10 py-24 px-4 bg-slate-950/90 backdrop-blur-xl border-t border-white/5">
+      <section className="relative z-10 py-24 px-4 bg-slate-950 border-t border-white/5">
         <div className="container mx-auto">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Built for <span className="text-primary text-glow">Greatness</span></h2>
@@ -194,6 +145,7 @@ export default function HomePage() {
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 sizes="100vw"
                 priority
+                unoptimized={true}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex items-center justify-center">
                 <Link
@@ -239,6 +191,7 @@ export default function HomePage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    unoptimized={true}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">

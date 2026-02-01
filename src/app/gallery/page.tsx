@@ -103,6 +103,7 @@ export default function GalleryPage() {
                         alt="Header Background"
                         fill
                         className="object-cover opacity-30 blur-sm"
+                        unoptimized={true}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950 to-slate-950" />
                 </div>

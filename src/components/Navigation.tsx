@@ -2,12 +2,10 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSession, signOut } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
-  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -32,7 +30,7 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/90 backdrop-blur-sm border-b border-white/10' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           {/* Logo */}
@@ -60,28 +58,6 @@ export default function Navigation() {
             <NavLink href="/squad">Squad</NavLink>
             <NavLink href="/gallery">Gallery</NavLink>
             <NavLink href="/contact">Contact</NavLink>
-
-            {session?.user ? (
-              <div className="flex items-center space-x-4 ml-4">
-                {(session.user as any).role === 'ADMIN' && (
-                  <Link href="/admin/dashboard" className="text-sm font-bold text-primary hover:text-white transition">
-                    ADMIN DASHBOARD
-                  </Link>
-                )}
-                <button
-                  onClick={() => signOut()}
-                  className="px-5 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all text-sm font-bold"
-                >
-                  LOGOUT
-                </button>
-              </div>
-            ) : (
-              <div className="ml-4 flex items-center space-x-4">
-                <Link href="/auth/login" className="text-sm font-bold hover:text-primary transition opacity-50 hover:opacity-100">
-                  ADMIN
-                </Link>
-              </div>
-            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,39 +74,13 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10 absolute w-full left-0">
+        <div className="md:hidden bg-slate-950/95 backdrop-blur-md border-t border-white/10 absolute w-full left-0">
           <div className="px-4 py-6 space-y-4">
             <MobileNavLink href="/" onClick={() => setIsOpen(false)}>Home</MobileNavLink>
             <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
             <MobileNavLink href="/squad" onClick={() => setIsOpen(false)}>Squad</MobileNavLink>
             <MobileNavLink href="/gallery" onClick={() => setIsOpen(false)}>Gallery</MobileNavLink>
             <MobileNavLink href="/contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
-
-            <div className="h-px bg-white/10 my-4" />
-
-            {session?.user ? (
-              <>
-                {(session.user as any).role === 'ADMIN' && (
-                  <MobileNavLink href="/admin/dashboard" onClick={() => setIsOpen(false)}>Admin Dashboard</MobileNavLink>
-                )}
-                <button
-                  onClick={() => signOut()}
-                  className="w-full text-left px-4 py-3 text-red-500 font-bold hover:bg-white/5 rounded-lg"
-                >
-                  LOGOUT
-                </button>
-              </>
-            ) : (
-              <div className="flex flex-col space-y-3 pt-2">
-                <Link
-                  href="/auth/login"
-                  onClick={() => setIsOpen(false)}
-                  className="text-center w-full py-3 border border-white/20 rounded-lg font-bold hover:bg-white/5 opacity-50"
-                >
-                  ADMIN LOGIN
-                </Link>
-              </div>
-            )}
           </div>
         </div>
       )}
