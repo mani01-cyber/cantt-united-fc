@@ -24,14 +24,6 @@ export const metadata: Metadata = {
   verification: {
     google: 'googleaf2f96d2da693c18',
   },
-  icons: {
-    icon: [
-      { url: '/logo.png' },
-      { url: '/logo.svg', type: 'image/svg+xml' },
-    ],
-    shortcut: '/logo.png',
-    apple: '/logo.png',
-  },
 };
 
 export default function RootLayout({
