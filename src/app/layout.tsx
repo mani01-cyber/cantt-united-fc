@@ -25,9 +25,12 @@ export const metadata: Metadata = {
     google: 'googleaf2f96d2da693c18',
   },
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: [
+      { url: '/logo.png' },
+      { url: '/logo.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
 };
 
