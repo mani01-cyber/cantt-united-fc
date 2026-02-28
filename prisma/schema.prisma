@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,16 +9,13 @@ datasource db {
 
 model Trial {
   id        String   @id @default(cuid())
-  
   fullName  String
   age       Int
   position  Position
   phone     String
   email     String
-  
   status    TrialStatus @default(PENDING)
   notes     String?
-  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -38,4 +32,28 @@ enum TrialStatus {
   ACCEPTED
   REJECTED
   SCHEDULED
+}
+
+// Simplified User specifically for Admin Access
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   
+  name      String
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Fixture {
+  id        String   @id @default(cuid())
+  opponent  String
+  date      String
+  time      String
+  venue     String
+  type      String
+  isActive  Boolean  @default(true) // Marks if this is the currently "Next" fixture
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

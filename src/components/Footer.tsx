@@ -5,9 +5,9 @@ import { Instagram, Linkedin, Facebook, Mail, MapPin, Phone } from 'lucide-react
 
 export default function Footer() {
     return (
-        <footer className="relative bg-slate-950 border-t border-white/10 overflow-hidden">
+        <footer className="relative bg-white border-t border-slate-200 overflow-hidden">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent pointer-events-none" />
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
 
             <div className="relative z-10 container mx-auto px-4 py-16">
@@ -20,11 +20,11 @@ export default function Footer() {
                                 CU
                             </div>
                             <div>
-                                <h3 className="text-xl font-black italic text-white">CANTT</h3>
+                                <h3 className="text-xl font-black italic text-slate-900">CANTT</h3>
                                 <p className="text-sm font-bold text-primary">UNITED</p>
                             </div>
                         </div>
-                        <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                        <p className="text-slate-600 text-sm leading-relaxed mb-6">
                             Building champions on and off the field since 2007. Lahore's premier football club.
                         </p>
 
@@ -34,79 +34,79 @@ export default function Footer() {
                                 href="https://instagram.com/canttunitedfc"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
+                                className="w-10 h-10 rounded-full bg-slate-100/80 border border-slate-200 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
                             >
-                                <Instagram size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                                <Instagram size={18} className="text-slate-600 group-hover:text-black transition-colors" />
                             </a>
                             <a
                                 href="https://linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
+                                className="w-10 h-10 rounded-full bg-slate-100/80 border border-slate-200 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
                             >
-                                <Linkedin size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                                <Linkedin size={18} className="text-slate-600 group-hover:text-black transition-colors" />
                             </a>
                             <a
                                 href="https://facebook.com/CanttUnited"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
+                                className="w-10 h-10 rounded-full bg-slate-100/80 border border-slate-200 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
                             >
-                                <Facebook size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                                <Facebook size={18} className="text-slate-600 group-hover:text-black transition-colors" />
                             </a>
                             <a
                                 href="mailto:tahir.iqbal@canttunited.com"
-                                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
+                                className="w-10 h-10 rounded-full bg-slate-100/80 border border-slate-200 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
                             >
-                                <Mail size={18} className="text-slate-400 group-hover:text-black transition-colors" />
+                                <Mail size={18} className="text-slate-600 group-hover:text-black transition-colors" />
                             </a>
                         </div>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                        <h4 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
                         <ul className="space-y-3">
-                            <li><Link href="/" className="text-slate-400 hover:text-primary transition-colors text-sm">Home</Link></li>
-                            <li><Link href="/about" className="text-slate-400 hover:text-primary transition-colors text-sm">About Us</Link></li>
-                            <li><Link href="/squad" className="text-slate-400 hover:text-primary transition-colors text-sm">Squad</Link></li>
-                            <li><Link href="/contact" className="text-slate-400 hover:text-primary transition-colors text-sm">Contact</Link></li>
+                            <li><Link href="/" className="text-slate-600 hover:text-primary transition-colors text-sm">Home</Link></li>
+                            <li><Link href="/about" className="text-slate-600 hover:text-primary transition-colors text-sm">About Us</Link></li>
+                            <li><Link href="/squad" className="text-slate-600 hover:text-primary transition-colors text-sm">Squad</Link></li>
+                            <li><Link href="/contact" className="text-slate-600 hover:text-primary transition-colors text-sm">Contact</Link></li>
                         </ul>
                     </div>
 
                     {/* Join Us */}
                     <div>
-                        <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Get Involved</h4>
+                        <h4 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Get Involved</h4>
                         <ul className="space-y-3">
-                            <li><Link href="/join" className="text-slate-400 hover:text-primary transition-colors text-sm">Join the Squad</Link></li>
-                            <li><Link href="/contact" className="text-slate-400 hover:text-primary transition-colors text-sm">Become a Sponsor</Link></li>
-                            <li><Link href="/contact" className="text-slate-400 hover:text-primary transition-colors text-sm">Fan Membership</Link></li>
-                            <li><Link href="/admin/dashboard" className="text-slate-400 hover:text-primary transition-colors text-sm">Admin Portal</Link></li>
+                            <li><Link href="/join" className="text-slate-600 hover:text-primary transition-colors text-sm">Join the Squad</Link></li>
+                            <li><Link href="/sponsors" className="text-slate-600 hover:text-primary transition-colors text-sm">Become a Sponsor</Link></li>
+                            <li><Link href="/donate" className="text-slate-600 hover:text-primary transition-colors text-sm">Donate Equipment/Funds</Link></li>
+                            <li><Link href="/contact" className="text-slate-600 hover:text-primary transition-colors text-sm">Fan Membership</Link></li>
                         </ul>
                     </div>
 
                     {/* Contact Info */}
                     <div>
-                        <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contact</h4>
+                        <h4 className="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Contact</h4>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <MapPin size={16} className="text-primary mt-1 flex-shrink-0" />
-                                <span className="text-slate-400 text-sm">Garrison Sports Complex, Lahore, Pakistan</span>
+                                <span className="text-slate-600 text-sm">Garrison Sports Complex, Lahore, Pakistan</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <Phone size={16} className="text-primary mt-1 flex-shrink-0" />
-                                <span className="text-slate-400 text-sm">+92 322 3233434</span>
+                                <span className="text-slate-600 text-sm">+92 322 3233434</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <Mail size={16} className="text-primary mt-1 flex-shrink-0" />
-                                <span className="text-slate-400 text-sm">tahir.iqbal@canttunited.com</span>
+                                <span className="text-slate-600 text-sm">tahir.iqbal@canttunited.com</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-white/5">
+                <div className="pt-8 border-t border-slate-200">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-slate-500 text-sm">
                             © {new Date().getFullYear()} Cantt United. All rights reserved.

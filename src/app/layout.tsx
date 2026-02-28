@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         suppressHydrationWarning={true}
-        className={`${outfit.variable} ${inter.variable} antialiased bg-slate-950 text-white font-sans overflow-x-hidden`}
+        className={`${outfit.variable} ${inter.variable} antialiased bg-white text-slate-900 font-sans overflow-x-hidden`}
       >
         <Navigation />
         {children}
