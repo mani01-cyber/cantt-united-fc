@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -18,11 +19,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://canttunited.com'),
   title: "Cantt United - The Future of Football",
   description: "Official website of Cantt United. Experience the passion, the power, and the extensive training of Lahore's premier football club.",
   keywords: 'Football, Cantt United, Soccer Club, Lahore Football',
   verification: {
     google: 'googleaf2f96d2da693c18',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
 };
 
@@ -41,6 +51,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
